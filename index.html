@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSec AI Tools - Ferramentas Éticas com Tutoriais</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-shield-alt"></i> CyberSec AI Tools</h1>
+            <p>Ferramentas de IA para Estudos Éticos em Cybersegurança</p>
+            <div class="premium-badge">
+                <a href="#premium" class="premium-link">
+                    <i class="fas fa-crown"></i> Premium
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="filter-nav">
+        <div class="container">
+            <button class="filter-btn active" data-category="all">Todas</button>
+            <button class="filter-btn" data-category="voice">Clonagem de Voz</button>
+            <button class="filter-btn" data-category="deepfake">Deepfake</button>
+            <button class="filter-btn" data-category="detection">Detecção</button>
+            <button class="filter-btn" data-category="analysis">Análise</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Banner de Afiliado -->
+        <div class="affiliate-banner">
+            <div class="banner-content">
+                <h3>🔒 Domine Cybersegurança com Ferramentas Avançadas</h3>
+                <p>Acesse cursos exclusivos e ferramentas premium para pesquisa ética</p>
+                <a href="../Acesso-Completo-Landing.html" class="btn-banner">🚀 ACESSO COMPLETO - R$ 97</a>
+            </div>
+        </div>
+        
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Tools will be populated by JavaScript -->
+        </div>
+        
+        <!-- Google AdSense -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </main>
+
+    <div class="warning-banner">
+        <div class="container">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>AVISO ÉTICO:</strong> Estas ferramentas são destinadas exclusivamente para fins educacionais e de pesquisa em cybersegurança. O uso malicioso é proibido e pode ser crime.
+        </div>
+    </div>
+
+    <!-- Modal de Tutorial -->
+    <div id="tutorialModal" class="modal">
+        <div class="modal-content tutorial-modal">
+            <span class="close" id="closeTutorial">&times;</span>
+            <h3 id="tutorialTitle">Como Usar a Ferramenta</h3>
+            <div id="tutorialContent" class="tutorial-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Implementação Ética -->
+    <div id="implementationModal" class="modal">
+        <div class="modal-content tutorial-modal">
+            <span class="close" id="closeImplementation">&times;</span>
+            <h3 id="implementationTitle">Implementação Ética</h3>
+            <div id="implementationContent" class="tutorial-content"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Premium -->
+    <div id="premiumModal" class="modal">
+        <div class="modal-content premium-modal">
+            <span class="close" id="closePremium">&times;</span>
+            <div class="premium-header">
+                <i class="fas fa-shield-alt premium-icon"></i>
+                <h3>CyberSec AI Premium</h3>
+            </div>
+            <div class="premium-features">
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Cursos avançados de cybersegurança</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Laboratórios virtuais exclusivos</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Suporte de especialistas</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Certificados de conclusão</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>Acesso a ferramentas premium</span>
+                </div>
+            </div>
+            <div class="pricing">
+                <div class="price-tag">
+                    <span class="old-price">R$ 197</span>
+                    <span class="new-price">R$ 97/mês</span>
+                </div>
+                <p class="discount-text">50% OFF - Promoção de lançamento!</p>
+            </div>
+            <div class="premium-actions">
+                <a href="https://pay.hotmart.com/XXXXXXXX" class="btn btn-premium" target="_blank">
+                    <i class="fas fa-shield-alt"></i> Assinar Premium
+                </a>
+                <a href="#" class="btn btn-secondary" id="learnMore">Saber Mais</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
