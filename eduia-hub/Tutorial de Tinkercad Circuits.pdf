@@ -1,0 +1,108 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 780
+>>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Tutorial: Tinkercad Circuits) Tj
+0 -40 Td
+/F1 12 Tf
+(Simulador online de Arduino e circuitos eletrônicos) Tj
+0 -40 Td
+(PRIMEIROS PASSOS:) Tj
+0 -20 Td
+(1. Acesse tinkercad.com e crie uma conta gratuita) Tj
+0 -15 Td
+(2. Clique em "Circuits" no menu principal) Tj
+0 -15 Td
+(3. Selecione "Create new Circuit") Tj
+0 -15 Td
+(4. Explore a interface de componentes) Tj
+0 -30 Td
+(MONTANDO SEU PRIMEIRO CIRCUITO:) Tj
+0 -20 Td
+(1. Arraste um Arduino Uno da biblioteca) Tj
+0 -15 Td
+(2. Adicione um LED e um resistor) Tj
+0 -15 Td
+(3. Conecte os componentes com fios) Tj
+0 -15 Td
+(4. Clique em "Start Simulation") Tj
+0 -30 Td
+(PROGRAMAÇÃO:) Tj
+0 -20 Td
+(- Use blocos visuais ou código C++) Tj
+0 -15 Td
+(- Biblioteca de exemplos disponível) Tj
+0 -15 Td
+(- Debugging visual em tempo real) Tj
+0 -15 Td
+(- Upload direto para Arduino real) Tj
+0 -30 Td
+(COMPONENTES DISPONÍVEIS:) Tj
+0 -20 Td
+(LEDs, sensores, motores, displays, breadboards e mais) Tj
+0 -30 Td
+(PROJETOS SUGERIDOS:) Tj
+0 -20 Td
+(Semáforo, sensor de temperatura, controle de servo) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001106 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1183
+%%EOF

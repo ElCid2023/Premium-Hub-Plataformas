@@ -1,0 +1,106 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 740
+>>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Tutorial: Replit AI) Tj
+0 -40 Td
+/F1 12 Tf
+(IDE online com IA integrada para programação colaborativa) Tj
+0 -40 Td
+(PRIMEIROS PASSOS:) Tj
+0 -20 Td
+(1. Acesse replit.com e crie conta gratuita) Tj
+0 -15 Td
+(2. Clique em "Create Repl" para novo projeto) Tj
+0 -15 Td
+(3. Escolha a linguagem de programação) Tj
+0 -15 Td
+(4. Nomeie seu projeto e clique "Create Repl") Tj
+0 -30 Td
+(USANDO A IA INTEGRADA:) Tj
+0 -20 Td
+(- Digite comentários descritivos no código) Tj
+0 -15 Td
+(- Use Ctrl+I para ativar sugestões da IA) Tj
+0 -15 Td
+(- A IA completa automaticamente funções) Tj
+0 -15 Td
+(- Peça explicações sobre código complexo) Tj
+0 -30 Td
+(RECURSOS PRINCIPAIS:) Tj
+0 -20 Td
+(- Editor com syntax highlighting) Tj
+0 -15 Td
+(- Terminal integrado) Tj
+0 -15 Td
+(- Colaboração em tempo real) Tj
+0 -15 Td
+(- Deploy automático) Tj
+0 -30 Td
+(LINGUAGENS SUPORTADAS:) Tj
+0 -20 Td
+(Python, JavaScript, Java, C++, HTML/CSS, Node.js e mais) Tj
+0 -30 Td
+(DICA: Use a IA para debuggar erros e otimizar código) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001066 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1143
+%%EOF

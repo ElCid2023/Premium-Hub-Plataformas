@@ -1,0 +1,106 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 820
+>>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Tutorial: GitHub Copilot) Tj
+0 -40 Td
+/F1 12 Tf
+(Assistente de IA para programação que revoluciona o desenvolvimento) Tj
+0 -40 Td
+(O QUE É O GITHUB COPILOT:) Tj
+0 -20 Td
+(O GitHub Copilot é um assistente de programação alimentado por IA) Tj
+0 -15 Td
+(que sugere código e funções inteiras em tempo real.) Tj
+0 -30 Td
+(INSTALAÇÃO E CONFIGURAÇÃO:) Tj
+0 -20 Td
+(1. Instale a extensão no VS Code) Tj
+0 -15 Td
+(2. Faça login com sua conta GitHub) Tj
+0 -15 Td
+(3. Ative a assinatura (gratuita para estudantes)) Tj
+0 -15 Td
+(4. Configure as preferências de sugestão) Tj
+0 -30 Td
+(COMO USAR EFETIVAMENTE:) Tj
+0 -20 Td
+(- Escreva comentários descritivos) Tj
+0 -15 Td
+(- Use nomes de funções claros) Tj
+0 -15 Td
+(- Aceite sugestões com Tab) Tj
+0 -15 Td
+(- Rejeite com Esc) Tj
+0 -30 Td
+(LINGUAGENS SUPORTADAS:) Tj
+0 -20 Td
+(Python, JavaScript, TypeScript, Ruby, Go, C#, C++, Java e mais) Tj
+0 -30 Td
+(DICAS AVANÇADAS:) Tj
+0 -20 Td
+(- Use Ctrl+Enter para ver múltiplas sugestões) Tj
+0 -15 Td
+(- Escreva testes primeiro para melhor contexto) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001146 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1223
+%%EOF

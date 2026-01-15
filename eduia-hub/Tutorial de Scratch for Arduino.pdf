@@ -1,0 +1,108 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 720
+>>
+stream
+BT
+/F1 18 Tf
+50 750 Td
+(Tutorial: Scratch for Arduino) Tj
+0 -40 Td
+/F1 12 Tf
+(Programação visual para Arduino usando blocos) Tj
+0 -40 Td
+(INSTALAÇÃO:) Tj
+0 -20 Td
+(1. Baixe o Scratch for Arduino (S4A)) Tj
+0 -15 Td
+(2. Instale o firmware S4A no Arduino) Tj
+0 -15 Td
+(3. Conecte o Arduino via USB) Tj
+0 -15 Td
+(4. Abra o software S4A) Tj
+0 -30 Td
+(INTERFACE PRINCIPAL:) Tj
+0 -20 Td
+(- Paleta de blocos à esquerda) Tj
+0 -15 Td
+(- Área de programação no centro) Tj
+0 -15 Td
+(- Sprite do Arduino à direita) Tj
+0 -15 Td
+(- Monitor de sensores) Tj
+0 -30 Td
+(BLOCOS PRINCIPAIS:) Tj
+0 -20 Td
+(- Movimento: controla servos) Tj
+0 -15 Td
+(- Aparência: LEDs e displays) Tj
+0 -15 Td
+(- Som: buzzers e alto-falantes) Tj
+0 -15 Td
+(- Sensores: leitura de pinos) Tj
+0 -30 Td
+(PRIMEIRO PROJETO:) Tj
+0 -20 Td
+(1. Arraste bloco "quando ⚑ clicado") Tj
+0 -15 Td
+(2. Adicione "ligar pino digital 13") Tj
+0 -15 Td
+(3. Clique na bandeira verde para executar) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000001046 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+1123
+%%EOF
