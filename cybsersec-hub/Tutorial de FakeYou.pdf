@@ -1,0 +1,96 @@
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 612 792]
+/Contents 4 0 R
+/Resources <<
+/Font <<
+/F1 5 0 R
+>>
+>>
+>>
+endobj
+
+4 0 obj
+<<
+/Length 460
+>>
+stream
+BT
+/F1 16 Tf
+50 750 Td
+(Tutorial: FakeYou - Síntese de Voz) Tj
+0 -30 Td
+/F1 12 Tf
+(Guia para uso educacional da plataforma FakeYou) Tj
+0 -40 Td
+(ACESSO À PLATAFORMA:) Tj
+0 -20 Td
+(1. Acesse fakeyou.com) Tj
+0 -15 Td
+(2. Crie uma conta gratuita) Tj
+0 -15 Td
+(3. Explore as vozes disponíveis) Tj
+0 -30 Td
+(GERAÇÃO DE ÁUDIO:) Tj
+0 -20 Td
+(1. Selecione uma voz da biblioteca) Tj
+0 -15 Td
+(2. Digite o texto desejado) Tj
+0 -15 Td
+(3. Ajuste configurações de velocidade) Tj
+0 -15 Td
+(4. Gere e baixe o áudio) Tj
+0 -30 Td
+(APLICAÇÃO EM SEGURANÇA:) Tj
+0 -20 Td
+(- Teste sistemas de autenticação por voz) Tj
+0 -15 Td
+(- Desenvolva detectores de voz sintética) Tj
+0 -15 Td
+(- Eduque sobre riscos de engenharia social) Tj
+ET
+endstream
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000274 00000 n 
+0000000786 00000 n 
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+863
+%%EOF
