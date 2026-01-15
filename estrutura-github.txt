@@ -1,0 +1,105 @@
+📁 ESTRUTURA PARA GITHUB - REPOSITÓRIO ÚNICO
+
+🎯 NOME DO REPOSITÓRIO: premium-hub-plataformas
+
+📂 ESTRUTURA DE PASTAS:
+premium-hub-plataformas/
+├── index.html (página inicial do Premium Hub)
+├── login.html
+├── dashboard.html
+├── acesso-liberado.html
+├── styles.css
+├── script.js
+├── login-styles.css
+├── login-script.js
+├── dashboard-styles.css
+├── dashboard-script.js
+├── codeia-hub/
+│   ├── index.html
+│   ├── script.js
+│   ├── styles.css
+│   ├── Arduino IDE.pdf
+│   ├── Arduino Project Hub.pdf
+│   ├── Projeto de Automação de luzes.pdf
+│   ├── Projeto Luz Reativa ao Som.pdf
+│   ├── Projeto Robô Evita Obstáculos.pdf
+│   └── Sobre S4A.docx
+├── eduia-hub/
+│   ├── index.html
+│   ├── script.js
+│   ├── styles.css
+│   ├── Tutorial de Arduino IDE 2.0.pdf
+│   ├── Tutorial de ChatGPT.pdf
+│   ├── Tutorial de GeoGebra.pdf
+│   ├── Tutorial de GitHub Copilot.pdf
+│   ├── Tutorial de Khan Academy Khanmigo.pdf
+│   ├── Tutorial de Photomath.pdf
+│   ├── Tutorial de Replit AI.pdf
+│   ├── Tutorial de Scratch for Arduino.pdf
+│   ├── Tutorial de Tinkercad Circuits.pdf
+│   └── Tutorial de Wokwi Arduino Simulator.pdf
+├── marketing-hub/
+│   ├── index.html
+│   ├── script.js
+│   ├── styles.css
+│   ├── Tutorial de Buffer AI.pdf
+│   ├── Tutorial de Calendly AI.pdf
+│   ├── Tutorial de Canvas.pdf
+│   ├── Tutorial de CHATGPT.pdf
+│   ├── Tutorial de Copy.pdf
+│   ├── Tutorial de Drift AI.pdf
+│   ├── Tutorial de Figma AI.pdf
+│   ├── Tutorial de Google Analytics Intelligence.pdf
+│   ├── Tutorial de Google Tag Manager.pdf
+│   ├── Tutorial de Hootsuite Insights.pdf
+│   ├── Tutorial de Hotjar.pdf
+│   ├── Tutorial de HubSpot AI.pdf
+│   ├── Tutorial de Jasper AI.pdf
+│   ├── Tutorial de Later AI.pdf
+│   ├── Tutorial de Loom AI.pdf
+│   ├── Tutorial de Mailchimp AI.pdf
+│   ├── Tutorial de Meta Pixel.pdf
+│   ├── Tutorial de Notion AI.pdf
+│   ├── Tutorial de Semrush AI.pdf
+│   ├── Tutorial de Sprout Social AI.pdf
+│   ├── Tutorial de Typeform AI.pdf
+│   ├── Tutorial de Unsplash AI.pdf
+│   ├── Tutorial de Writesonic.pdf
+│   └── Tutorial de Zapier AI.pdf
+└── cybersec-hub/
+    ├── index.html
+    ├── script.js
+    ├── styles.css
+    ├── Tutorial de DeepFaceLab.pdf
+    ├── Tutorial de Deepware Scanner.pdf
+    ├── Tutorial de FakeYou.pdf
+    ├── Tutorial de Real-Time Voice Cloning.pdf
+    └── Tutorial de Wav2Lip.pdf
+
+🔧 AJUSTES NECESSÁRIOS NOS CÓDIGOS:
+
+1. No dashboard.html, alterar os links:
+   - ../programação/index.html → codeia-hub/index.html
+   - ../Plataforma Ferramentas Educacionais/index.html → eduia-hub/index.html
+   - ../Marketing/index.html → marketing-hub/index.html
+   - ../cybersec-ai-tools/index.html → cybersec-hub/index.html
+
+2. Nos arquivos de cada plataforma, ajustar caminhos dos PDFs para relativos
+
+🌐 URL FINAL NO GITHUB PAGES:
+https://seuusuario.github.io/premium-hub-plataformas/
+
+🎯 VANTAGENS DESTA ESTRUTURA:
+✅ Tudo em um repositório
+✅ Fácil de gerenciar
+✅ URLs organizadas
+✅ GitHub Pages gratuito
+✅ Hotmart consegue redirecionar
+
+📋 PASSOS PARA SUBIR:
+1. Criar repositório "premium-hub-plataformas"
+2. Organizar arquivos nesta estrutura
+3. Fazer upload
+4. Ativar GitHub Pages
+5. Testar todas as URLs
+6. Configurar no Hotmart

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Hub - Configuração de Pagamentos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; }
+        .option { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #007bff; }
+        .option h3 { color: #007bff; margin-top: 0; }
+        .code { background: #f1f3f4; padding: 10px; border-radius: 5px; font-family: monospace; margin: 10px 0; }
+        .warning { background: #fff3cd; padding: 15px; border-radius: 5px; border-left: 4px solid #ffc107; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Configuração de Pagamentos - Premium Hub</h1>
+        
+        <div class="warning">
+            <strong>⚠️ Importante:</strong> Você precisa configurar um dos métodos abaixo para receber os pagamentos automaticamente.
+        </div>
+
+        <div class="option">
+            <h3>1. 💳 Mercado Pago (Recomendado)</h3>
+            <p><strong>Vantagens:</strong> PIX automático, aprovação instantânea, taxa 3.99%</p>
+            <p><strong>Como configurar:</strong></p>
+            <ol>
+                <li>Crie conta em <a href="https://mercadopago.com.br" target="_blank">mercadopago.com.br</a></li>
+                <li>Vá em "Desenvolvedores" → "Suas aplicações"</li>
+                <li>Crie nova aplicação</li>
+                <li>Copie o Access Token</li>
+                <li>Substitua no código:</li>
+            </ol>
+            <div class="code">
+// No script.js, linha 15:
+const MERCADOPAGO_TOKEN = 'SEU_ACCESS_TOKEN_AQUI';
+            </div>
+        </div>
+
+        <div class="option">
+            <h3>2. 🏪 PagSeguro</h3>
+            <p><strong>Vantagens:</strong> PIX automático, integração simples, taxa 4.99%</p>
+            <p><strong>Como configurar:</strong></p>
+            <ol>
+                <li>Crie conta em <a href="https://pagseguro.uol.com.br" target="_blank">pagseguro.uol.com.br</a></li>
+                <li>Acesse "Minha Conta" → "Preferências" → "Integração"</li>
+                <li>Gere seu Token</li>
+                <li>Substitua no código:</li>
+            </ol>
+            <div class="code">
+// No script.js, linha 20:
+const PAGSEGURO_TOKEN = 'SEU_TOKEN_AQUI';
+            </div>
+        </div>
+
+        <div class="option">
+            <h3>3. 🔥 Hotmart (Para Produtos Digitais)</h3>
+            <p><strong>Vantagens:</strong> Especializado em infoprodutos, entrega automática</p>
+            <p><strong>Como configurar:</strong></p>
+            <ol>
+                <li>Crie conta em <a href="https://hotmart.com" target="_blank">hotmart.com</a></li>
+                <li>Cadastre o Premium Hub como produto</li>
+                <li>Configure preço R$ 19,99</li>
+                <li>Substitua o link:</li>
+            </ol>
+            <div class="code">
+// No index.html, linha 67:
+href="https://pay.hotmart.com/SEU_CODIGO_PRODUTO"
+            </div>
+        </div>
+
+        <div class="option">
+            <h3>4. 💰 PIX Manual (Atual)</h3>
+            <p><strong>Como está agora:</strong> Cliente paga PIX e envia comprovante no WhatsApp</p>
+            <p><strong>Para configurar seu PIX:</strong></p>
+            <ol>
+                <li>Gere sua chave PIX no banco</li>
+                <li>Crie código PIX para R$ 19,99</li>
+                <li>Substitua no código:</li>
+            </ol>
+            <div class="code">
+// No script.js, linha 8:
+const pixCode = "SEU_CODIGO_PIX_AQUI";
+
+// No index.html, linha 89:
+href="https://wa.me/SEU_NUMERO?text=..."
+            </div>
+        </div>
+
+        <div class="option">
+            <h3>5. 🤖 Automação Completa (Avançado)</h3>
+            <p><strong>Sistema completo:</strong> Pagamento → Geração automática de senha → Envio por email</p>
+            <p><strong>Requer:</strong> Servidor web, banco de dados, API de pagamento</p>
+            <p>💡 <strong>Dica:</strong> Comece com Hotmart ou Mercado Pago para validar o produto primeiro!</p>
+        </div>
+
+        <h2>📋 Próximos Passos:</h2>
+        <ol>
+            <li>Escolha uma opção acima</li>
+            <li>Configure a conta na plataforma</li>
+            <li>Atualize os códigos nos arquivos</li>
+            <li>Teste o pagamento</li>
+            <li>Comece a vender! 🚀</li>
+        </ol>
+
+        <div class="warning">
+            <strong>💡 Recomendação:</strong> Para começar rápido, use o <strong>Hotmart</strong>. É especializado em produtos digitais e cuida de tudo automaticamente.
+        </div>
+    </div>
+</body>
+</html>
