@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Onshape - CAD 3D na Nuvem</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>☁️ Tutorial Onshape</h1>
+        <p class="subtitle">CAD 3D Online Profissional Gratuito para Uso Educacional</p>
+
+        <div class="step">
+            <h2>1. Criando Conta Educacional</h2>
+            <p>Onshape oferece acesso gratuito para estudantes e educadores:</p>
+            <ul>
+                <li>Acesse <strong>onshape.com/en/education</strong></li>
+                <li>Clique em "Get Started"</li>
+                <li>Selecione "Education Plan"</li>
+                <li>Use email educacional (.edu) se possível</li>
+                <li>Preencha formulário de verificação</li>
+                <li>Aguarde aprovação (1-2 dias)</li>
+            </ul>
+            <div class="info-box">
+                <strong>Vantagens do Onshape:</strong>
+                <ul>
+                    <li>100% baseado em nuvem (acesse de qualquer lugar)</li>
+                    <li>Colaboração em tempo real</li>
+                    <li>Versionamento automático</li>
+                    <li>Apps mobile (iOS/Android)</li>
+                    <li>Não requer hardware potente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Interface do Onshape</h2>
+            <p>Elementos principais da interface:</p>
+            <ul>
+                <li><strong>Toolbar:</strong> Ferramentas de modelagem (topo)</li>
+                <li><strong>Feature List:</strong> Histórico de operações (esquerda)</li>
+                <li><strong>Viewport:</strong> Área de visualização 3D (centro)</li>
+                <li><strong>ViewCube:</strong> Navegação de vista (canto)</li>
+                <li><strong>Parts List:</strong> Componentes do documento (baixo)</li>
+            </ul>
+            <div class="code-block">Navegação 3D:
+Mouse Scroll - Zoom
+Botão Meio - Pan (arrastar)
+Botão Direito - Rotacionar
+Shift + Botão Meio - Rotacionar
+
+Atalhos:
+S - Sketch (esboço)
+E - Extrude
+R - Revolve
+F - Fillet (arredondar)
+C - Chamfer (chanfro)
+M - Mirror (espelhar)</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Primeiro Projeto: Cubo Simples</h2>
+            <p>Crie sua primeira peça 3D:</p>
+            <ul>
+                <li>Clique em "Create" → "Document"</li>
+                <li>Nomeie o documento</li>
+                <li>Clique em "Part Studio" (já aberto)</li>
+                <li>Clique em "Sketch" (S)</li>
+                <li>Selecione plano "Top"</li>
+                <li>Desenhe retângulo 50x50mm</li>
+                <li>Clique em ✓ (check) para finalizar sketch</li>
+                <li>Clique em "Extrude" (E)</li>
+                <li>Defina altura: 50mm</li>
+                <li>Clique em ✓</li>
+            </ul>
+            <div class="success-box">
+                <strong>Parabéns!</strong> Você criou seu primeiro sólido 3D no Onshape!
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>4. Ferramentas de Sketch</h2>
+            <p>Desenho 2D para criar perfis:</p>
+            <div class="code-block">Ferramentas Básicas:
+L - Line (linha)
+C - Circle (círculo)
+R - Rectangle (retângulo)
+A - Arc (arco)
+P - Point (ponto)
+T - Text (texto)
+
+Restrições (Constraints):
+H - Horizontal
+V - Vertical
+= - Equal (igualdade)
+⊥ - Perpendicular
+∥ - Parallel
+⌀ - Dimension (cota)
+
+Dica: Use restrições para definir
+geometria completamente (fully defined)</div>
+        </div>
+
+        <div class="step">
+            <h2>5. Features 3D Principais</h2>
+            <p>Operações para criar sólidos:</p>
+            <ul>
+                <li><strong>Extrude:</strong> Extruir perfil 2D em 3D</li>
+                <li><strong>Revolve:</strong> Girar perfil em torno de eixo</li>
+                <li><strong>Sweep:</strong> Seguir caminho</li>
+                <li><strong>Loft:</strong> Transição entre perfis</li>
+                <li><strong>Fillet:</strong> Arredondar arestas</li>
+                <li><strong>Chamfer:</strong> Chanfrar arestas</li>
+                <li><strong>Shell:</strong> Criar casca (oco)</li>
+                <li><strong>Pattern:</strong> Repetir features</li>
+            </ul>
+            <div class="code-block">Exemplo: Cilindro Oco
+1. Sketch → Circle ⌀50mm
+2. Extrude → 100mm
+3. Shell → Espessura 5mm
+   (selecione face superior)
+
+Resultado: Tubo com parede de 5mm</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Assemblies (Montagens)</h2>
+            <p>Combine múltiplas peças:</p>
+            <ul>
+                <li>Clique em "+" → "Create Assembly"</li>
+                <li>Insira peças: "Insert" → Selecione Part Studio</li>
+                <li>Use "Mate" para posicionar peças:
+                    <ul>
+                        <li>Fastened: Fixar posição</li>
+                        <li>Revolute: Rotação (dobradiça)</li>
+                        <li>Slider: Deslizamento</li>
+                        <li>Cylindrical: Rotação + deslizamento</li>
+                    </ul>
+                </li>
+                <li>Teste movimento com "Animate"</li>
+            </ul>
+            <div class="info-box">
+                <strong>Exemplo:</strong> Monte um robô com braços articulados usando mates Revolute nas juntas.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>7. Drawings (Desenhos Técnicos)</h2>
+            <p>Crie documentação técnica:</p>
+            <ul>
+                <li>Clique em "+" → "Create Drawing"</li>
+                <li>Selecione template (A4, A3, etc.)</li>
+                <li>Arraste vistas da peça</li>
+                <li>Adicione cotas (dimensions)</li>
+                <li>Insira notas e tolerâncias</li>
+                <li>Exporte como PDF ou DWG</li>
+            </ul>
+            <div class="code-block">Vistas Padrão:
+- Front (frontal)
+- Top (superior)
+- Right (lateral direita)
+- Isometric (isométrica)
+- Section (corte)
+- Detail (detalhe ampliado)</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Colaboração em Tempo Real</h2>
+            <p>Trabalhe em equipe simultaneamente:</p>
+            <ul>
+                <li>Clique em "Share" (canto superior direito)</li>
+                <li>Adicione colaboradores por email</li>
+                <li>Defina permissões:
+                    <ul>
+                        <li>View: Apenas visualizar</li>
+                        <li>Comment: Visualizar e comentar</li>
+                        <li>Edit: Editar documento</li>
+                        <li>Owner: Controle total</li>
+                    </ul>
+                </li>
+                <li>Veja cursores de outros usuários em tempo real</li>
+                <li>Use "Follow" para acompanhar trabalho de colega</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>9. Versionamento e Histórico</h2>
+            <p>Controle de versões automático:</p>
+            <ul>
+                <li>Cada edição é salva automaticamente</li>
+                <li>Crie "Versions" para marcos importantes</li>
+                <li>Compare versões lado a lado</li>
+                <li>Restaure versões anteriores</li>
+                <li>Veja histórico completo de mudanças</li>
+            </ul>
+            <div class="code-block">Criar Versão:
+1. Clique em ícone de relógio (History)
+2. Clique em "Create version"
+3. Nomeie (ex: "v1.0 - Protótipo inicial")
+4. Adicione descrição
+5. Clique em "Create"
+
+Benefício: Nunca perca trabalho!</div>
+        </div>
+
+        <div class="step">
+            <h2>10. Projeto Prático: Suporte para Arduino</h2>
+            <div class="code-block">Especificações:
+- Base: 70mm x 55mm x 3mm
+- Furos M3 nas posições do Arduino Uno
+- Espaçadores: 10mm altura
+- Encaixe para cabo USB
+
+Passos:
+1. Sketch retângulo 70x55mm
+2. Extrude 3mm (base)
+3. Adicione círculos ⌀3.2mm (furos M3)
+   Posições: (14,2.5), (66,7.5), (66,35.5), (14,50.5)
+4. Extrude Remove (furos passantes)
+5. Sketch círculos ⌀6mm nos mesmos pontos
+6. Extrude 10mm (espaçadores)
+7. Fillet 1mm nas arestas
+8. Adicione recorte para USB
+
+Exportar para impressão 3D:
+- Clique direito na peça
+- Export → STL
+- Imprima em PLA ou ABS</div>
+        </div>
+
+        <div class="success-box">
+            <strong>Recursos Adicionais:</strong>
+            <ul>
+                <li>Learning Center: learn.onshape.com</li>
+                <li>Tutoriais em vídeo: YouTube Onshape</li>
+                <li>Fórum: forum.onshape.com</li>
+                <li>Certificação gratuita: Onshape Associate</li>
+                <li>App mobile: iOS e Android</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>Limitações da Conta Gratuita:</strong>
+            <ul>
+                <li>Documentos públicos (visíveis para todos)</li>
+                <li>Para documentos privados, use conta Education</li>
+                <li>Requer conexão internet</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

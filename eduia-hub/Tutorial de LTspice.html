@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial LTspice - Simulação SPICE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Tutorial LTspice</h1>
+        <p class="subtitle">Simulador SPICE Gratuito para Análise de Circuitos Analógicos</p>
+
+        <div class="step">
+            <h2>1. Instalação do LTspice</h2>
+            <p>LTspice é um simulador SPICE profissional gratuito da Analog Devices:</p>
+            <ul>
+                <li>Acesse <strong>analog.com/ltspice</strong></li>
+                <li>Baixe para Windows, Mac ou Linux</li>
+                <li>Instale seguindo o assistente</li>
+                <li>Não requer licença ou cadastro</li>
+            </ul>
+            <div class="info-box">
+                <strong>Por que LTspice?</strong>
+                <ul>
+                    <li>100% gratuito e profissional</li>
+                    <li>Modelos precisos de componentes</li>
+                    <li>Rápido e eficiente</li>
+                    <li>Biblioteca extensa da Analog Devices</li>
+                    <li>Usado na indústria</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Interface do LTspice</h2>
+            <p>Elementos principais:</p>
+            <ul>
+                <li><strong>Schematic Editor:</strong> Desenho do circuito</li>
+                <li><strong>Waveform Viewer:</strong> Visualização de resultados</li>
+                <li><strong>Toolbar:</strong> Ferramentas de desenho</li>
+                <li><strong>Component Library:</strong> Biblioteca de componentes</li>
+            </ul>
+            <div class="code-block">Atalhos Essenciais:
+F2 - Adicionar componente
+F3 - Adicionar fio (Wire)
+F4 - Adicionar label
+G - Adicionar GND (terra)
+R - Rotacionar componente
+Ctrl+R - Espelhar
+Delete - Excluir
+Esc - Cancelar ação</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Primeiro Circuito: Divisor de Tensão</h2>
+            <p>Crie e simule um divisor de tensão:</p>
+            <div class="code-block">Passo a Passo:
+1. File → New Schematic
+2. F2 → Digite "voltage" → Selecione "voltage"
+3. Posicione fonte (V1)
+4. Clique direito em V1 → Advanced
+   - DC value: 12V
+5. F2 → Digite "res" → Adicione 2 resistores
+   - R1: 10k
+   - R2: 10k
+6. G → Adicione GND
+7. F3 → Conecte tudo:
+   V1(+) → R1 → R2 → GND
+   V1(-) → GND
+
+Resultado esperado:
+Vout = 12V × (R2/(R1+R2))
+Vout = 12V × (10k/20k) = 6V</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Análise DC Operating Point</h2>
+            <p>Simule ponto de operação DC:</p>
+            <ul>
+                <li>Clique em "Simulate" → "Edit Simulation Cmd"</li>
+                <li>Aba "DC op pnt" → OK</li>
+                <li>Clique no esquemático para posicionar comando</li>
+                <li>Clique em "Run" (ícone de homem correndo)</li>
+                <li>Clique nos nós para ver tensões</li>
+                <li>Clique em componentes para ver correntes</li>
+            </ul>
+            <div class="code-block">Comando SPICE:
+.op
+
+Resultados:
+V(n001) = 12V    (saída da fonte)
+V(n002) = 6V     (entre R1 e R2)
+I(R1) = 600µA    (corrente em R1)
+I(R2) = 600µA    (corrente em R2)</div>
+        </div>
+
+        <div class="step">
+            <h2>5. Análise Transiente (Tempo)</h2>
+            <p>Simule comportamento ao longo do tempo:</p>
+            <div class="code-block">Circuito RC (Carga de Capacitor):
+Componentes:
+- V1: PULSE(0 5 0 1n 1n 5m 10m)
+- R1: 10k
+- C1: 100µF
+
+Simulação:
+.tran 0 10m 0 1u
+
+Parâmetros PULSE:
+V1=0V, V2=5V, Tdelay=0, Trise=1ns, 
+Tfall=1ns, Ton=5ms, Tperiod=10ms
+
+Constante de tempo:
+τ = R × C = 10k × 100µ = 1 segundo
+
+Tempo para 63%: τ = 1s
+Tempo para 99%: 5τ = 5s</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Análise AC (Frequência)</h2>
+            <p>Analise resposta em frequência:</p>
+            <div class="code-block">Filtro Passa-Baixas RC:
+Componentes:
+- V1: AC 1 (amplitude 1V)
+- R1: 1k
+- C1: 1µF
+
+Simulação:
+.ac dec 100 1 1Meg
+
+Parâmetros:
+- dec: Escala logarítmica (década)
+- 100: Pontos por década
+- 1: Frequência inicial (1Hz)
+- 1Meg: Frequência final (1MHz)
+
+Análise:
+fc = 1/(2π×R×C) = 159Hz
+Ganho em fc: -3dB
+Roll-off: -20dB/década</div>
+        </div>
+
+        <div class="step">
+            <h2>7. Medições Automáticas</h2>
+            <p>Use comandos .meas para extrair dados:</p>
+            <div class="code-block">Exemplos de Medições:
+
+; Medir tensão máxima
+.meas tran Vmax MAX V(out)
+
+; Medir tempo de subida (10% a 90%)
+.meas tran Trise TRIG V(out)=0.5 RISE=1 
++                 TARG V(out)=4.5 RISE=1
+
+; Medir potência média
+.meas tran Pavg AVG V(out)*I(R1)
+
+; Medir frequência de corte (-3dB)
+.meas ac fc WHEN vdb(out)=-3
+
+; Medir atraso
+.meas tran delay TRIG V(in)=2.5 RISE=1
++                 TARG V(out)=2.5 RISE=1</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Análise Paramétrica (.step)</h2>
+            <p>Varie parâmetros automaticamente:</p>
+            <div class="code-block">Variar Resistor:
+; No esquemático, defina R1={Rval}
+.step param Rval 1k 10k 1k
+
+; Variar múltiplos parâmetros
+.step param R 1k 10k 1k
+.step param C 1u 10u 1u
+
+; Variar temperatura
+.step temp -40 125 25
+
+; Variar lista de valores
+.step param Vcc list 3.3 5 12
+
+Resultado:
+Múltiplas curvas no gráfico,
+uma para cada valor testado</div>
+        </div>
+
+        <div class="step">
+            <h2>9. Análise de Pior Caso (Monte Carlo)</h2>
+            <p>Simule variações de componentes:</p>
+            <div class="code-block">Tolerância de Resistores:
+; Resistor com tolerância 5%
+.param Rnom=10k
+.param Rtol=0.05
+R1 n1 n2 {Rnom*(1+Rtol*random())}
+
+; Monte Carlo (100 iterações)
+.step param run 1 100 1
+
+; Análise worst-case
+.step param Rvar -0.05 0.05 0.01
+R1 n1 n2 {10k*(1+Rvar)}
+
+Aplicação:
+Verificar se circuito funciona
+com variações de componentes</div>
+        </div>
+
+        <div class="step">
+            <h2>10. Dicas Avançadas</h2>
+            <div class="success-box">
+                <strong>Otimização de Simulações:</strong>
+                <ul>
+                    <li><strong>Timestep:</strong> Ajuste para sinais rápidos (.tran 0 1m 0 1n)</li>
+                    <li><strong>Convergência:</strong> Use .options para ajudar convergência</li>
+                    <li><strong>Modelos:</strong> Use modelos SPICE realistas</li>
+                    <li><strong>Subcircuitos:</strong> Crie blocos reutilizáveis</li>
+                    <li><strong>Hierarquia:</strong> Organize circuitos complexos</li>
+                </ul>
+            </div>
+            <div class="code-block">Comandos Úteis:
+.options plotwinsize=0  ; Desabilita limite de pontos
+.options numdgt=7       ; Precisão numérica
+.ic V(node)=5          ; Condição inicial
+.nodeset V(node)=2.5   ; Ajuda convergência
+.save V(out) I(R1)     ; Salva apenas dados específicos</div>
+        </div>
+
+        <div class="warning-box">
+            <strong>Erros Comuns:</strong>
+            <ul>
+                <li>Falta de GND (terra) no circuito</li>
+                <li>Nós flutuantes (desconectados)</li>
+                <li>Timestep muito grande para sinais rápidos</li>
+                <li>Modelos de componentes incorretos</li>
+                <li>Loops de tensão ou corrente</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Recursos Adicionais:</strong>
+            <ul>
+                <li>Documentação: Help → LTspice Help</li>
+                <li>Exemplos: File → Open → Examples</li>
+                <li>Fórum: groups.io/g/LTspice</li>
+                <li>Tutoriais: YouTube, Analog Devices</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

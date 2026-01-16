@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial CodeT5 - IA para Geração de Código</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Tutorial CodeT5</h1>
+        <p class="subtitle">IA para Geração e Compreensão de Código em Múltiplas Linguagens</p>
+
+        <div class="step">
+            <h2>1. O que é CodeT5?</h2>
+            <p>CodeT5 é um modelo de IA desenvolvido pela Salesforce baseado na arquitetura T5 (Text-to-Text Transfer Transformer), especialmente treinado para tarefas de programação. Ele pode gerar código, traduzir entre linguagens, resumir código e realizar refatoração.</p>
+            <div class="info-box">
+                <strong>Principais Capacidades:</strong>
+                <ul>
+                    <li>Geração de código a partir de descrições em linguagem natural</li>
+                    <li>Tradução entre diferentes linguagens de programação</li>
+                    <li>Resumo e documentação automática de código</li>
+                    <li>Refatoração e otimização de código</li>
+                    <li>Detecção de bugs e sugestões de correção</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Instalação e Configuração</h2>
+            <p>Para usar o CodeT5, você precisa instalar as bibliotecas necessárias:</p>
+            <div class="code-block">pip install transformers torch
+pip install sentencepiece</div>
+            <p>Código básico para carregar o modelo:</p>
+            <div class="code-block">from transformers import T5ForConditionalGeneration, RobertaTokenizer
+
+# Carregar modelo e tokenizer
+model = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base')
+tokenizer = RobertaTokenizer.from_pretrained('Salesforce/codet5-base')
+
+# Função para gerar código
+def generate_code(prompt, max_length=200):
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+    generated_ids = model.generate(input_ids, max_length=max_length)
+    return tokenizer.decode(generated_ids[0], skip_special_tokens=True)</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Geração de Código</h2>
+            <p>Use descrições em linguagem natural para gerar código:</p>
+            <div class="code-block"># Exemplo 1: Gerar função Python
+prompt = "def calculate_fibonacci(n):"
+result = generate_code(prompt)
+print(result)
+
+# Exemplo 2: Criar classe
+prompt = "class BankAccount:"
+result = generate_code(prompt)
+print(result)
+
+# Exemplo 3: Algoritmo específico
+prompt = "Write a function to sort an array using quicksort"
+result = generate_code(prompt)
+print(result)</div>
+            <div class="success-box">
+                <strong>Dica:</strong> Seja específico na descrição. Quanto mais detalhes você fornecer, melhor será o código gerado.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>4. Tradução Entre Linguagens</h2>
+            <p>CodeT5 pode traduzir código de uma linguagem para outra:</p>
+            <div class="code-block"># Traduzir de Python para Java
+python_code = """
+def factorial(n):
+    if n <= 1:
+        return 1
+    return n * factorial(n-1)
+"""
+
+prompt = f"Translate Python to Java: {python_code}"
+java_code = generate_code(prompt, max_length=300)
+print(java_code)
+
+# Traduzir de JavaScript para Python
+js_code = """
+function sumArray(arr) {
+    return arr.reduce((sum, num) => sum + num, 0);
+}
+"""
+
+prompt = f"Translate JavaScript to Python: {js_code}"
+python_code = generate_code(prompt, max_length=300)
+print(python_code)</div>
+        </div>
+
+        <div class="step">
+            <h2>5. Resumo e Documentação</h2>
+            <p>Gere documentação automática para seu código:</p>
+            <div class="code-block"># Gerar docstring
+code = """
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+"""
+
+prompt = f"Generate documentation for: {code}"
+documentation = generate_code(prompt, max_length=200)
+print(documentation)
+
+# Resumir código complexo
+prompt = f"Summarize this code: {code}"
+summary = generate_code(prompt, max_length=100)
+print(summary)</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Refatoração de Código</h2>
+            <p>Melhore a qualidade do seu código:</p>
+            <div class="code-block"># Código não otimizado
+bad_code = """
+def find_max(numbers):
+    max_num = numbers[0]
+    for i in range(len(numbers)):
+        if numbers[i] > max_num:
+            max_num = numbers[i]
+    return max_num
+"""
+
+prompt = f"Refactor and optimize: {bad_code}"
+optimized_code = generate_code(prompt, max_length=200)
+print(optimized_code)
+
+# Melhorar legibilidade
+messy_code = """
+def f(x,y,z):return x+y*z if z>0 else x-y
+"""
+
+prompt = f"Improve code readability: {messy_code}"
+clean_code = generate_code(prompt, max_length=150)
+print(clean_code)</div>
+        </div>
+
+        <div class="step">
+            <h2>7. Detecção de Bugs</h2>
+            <p>Identifique e corrija erros no código:</p>
+            <div class="code-block"># Código com bug
+buggy_code = """
+def divide_numbers(a, b):
+    return a / b
+"""
+
+prompt = f"Find and fix bugs in: {buggy_code}"
+fixed_code = generate_code(prompt, max_length=200)
+print(fixed_code)
+
+# Análise de segurança
+insecure_code = """
+def execute_query(user_input):
+    query = "SELECT * FROM users WHERE name = '" + user_input + "'"
+    return execute(query)
+"""
+
+prompt = f"Identify security issues: {insecure_code}"
+analysis = generate_code(prompt, max_length=250)
+print(analysis)</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Uso Avançado com Fine-tuning</h2>
+            <p>Personalize o modelo para suas necessidades específicas:</p>
+            <div class="code-block">from transformers import Trainer, TrainingArguments
+
+# Preparar dados de treinamento
+train_dataset = [
+    {"input": "Create a REST API endpoint", "output": "code here"},
+    # Mais exemplos...
+]
+
+# Configurar treinamento
+training_args = TrainingArguments(
+    output_dir="./codet5-finetuned",
+    num_train_epochs=3,
+    per_device_train_batch_size=4,
+    save_steps=1000,
+    save_total_limit=2,
+)
+
+# Treinar modelo
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+)
+
+trainer.train()</div>
+            <div class="warning-box">
+                <strong>Atenção:</strong> Fine-tuning requer recursos computacionais significativos (GPU recomendada) e um dataset de qualidade.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>9. Integração com IDEs</h2>
+            <p>Crie uma extensão simples para VS Code:</p>
+            <div class="code-block"># server.py - Backend Flask
+from flask import Flask, request, jsonify
+from transformers import T5ForConditionalGeneration, RobertaTokenizer
+
+app = Flask(__name__)
+model = T5ForConditionalGeneration.from_pretrained('Salesforce/codet5-base')
+tokenizer = RobertaTokenizer.from_pretrained('Salesforce/codet5-base')
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    prompt = request.json['prompt']
+    input_ids = tokenizer(prompt, return_tensors="pt").input_ids
+    generated_ids = model.generate(input_ids, max_length=200)
+    code = tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+    return jsonify({'code': code})
+
+if __name__ == '__main__':
+    app.run(port=5000)</div>
+        </div>
+
+        <div class="step">
+            <h2>10. Melhores Práticas</h2>
+            <div class="info-box">
+                <strong>Dicas para Resultados Ótimos:</strong>
+                <ul>
+                    <li><strong>Prompts Claros:</strong> Seja específico sobre o que deseja</li>
+                    <li><strong>Contexto:</strong> Forneça informações sobre o ambiente e requisitos</li>
+                    <li><strong>Iteração:</strong> Refine os resultados com prompts adicionais</li>
+                    <li><strong>Validação:</strong> Sempre revise e teste o código gerado</li>
+                    <li><strong>Segurança:</strong> Verifique vulnerabilidades no código gerado</li>
+                    <li><strong>Performance:</strong> Use cache para prompts frequentes</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="success-box">
+            <strong>✅ Recursos Adicionais:</strong>
+            <ul>
+                <li>Documentação oficial: <a href="https://huggingface.co/Salesforce/codet5-base" target="_blank">HuggingFace CodeT5</a></li>
+                <li>Paper original: "CodeT5: Identifier-aware Unified Pre-trained Encoder-Decoder Models for Code Understanding and Generation"</li>
+                <li>GitHub: Exemplos e notebooks práticos</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

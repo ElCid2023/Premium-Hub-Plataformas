@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial KiCad - Design PCB Profissional</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Tutorial KiCad</h1>
+        <p class="subtitle">Suíte Completa Open Source para Design de PCB</p>
+
+        <div class="step">
+            <h2>1. Instalação do KiCad</h2>
+            <p>KiCad é uma suíte profissional gratuita e open source:</p>
+            <ul>
+                <li>Acesse <strong>kicad.org</strong></li>
+                <li>Baixe versão estável para seu sistema</li>
+                <li>Instale com bibliotecas padrão</li>
+                <li>Primeira execução: Configure caminhos de bibliotecas</li>
+            </ul>
+            <div class="info-box">
+                <strong>Componentes do KiCad:</strong>
+                <ul>
+                    <li><strong>Eeschema:</strong> Editor de esquemático</li>
+                    <li><strong>Pcbnew:</strong> Editor de PCB</li>
+                    <li><strong>Symbol Editor:</strong> Criar símbolos</li>
+                    <li><strong>Footprint Editor:</strong> Criar footprints</li>
+                    <li><strong>3D Viewer:</strong> Visualização 3D</li>
+                    <li><strong>Gerber Viewer:</strong> Visualizar Gerbers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Criando Novo Projeto</h2>
+            <p>Inicie seu primeiro projeto:</p>
+            <ul>
+                <li>Abra KiCad</li>
+                <li>File → New Project</li>
+                <li>Escolha local e nome (ex: "led_blink")</li>
+                <li>KiCad cria pasta com arquivos do projeto</li>
+                <li>Clique duas vezes em .kicad_sch (esquemático)</li>
+            </ul>
+            <div class="code-block">Estrutura de Arquivos:
+projeto.kicad_pro    - Configurações do projeto
+projeto.kicad_sch    - Esquemático
+projeto.kicad_pcb    - Layout PCB
+projeto-cache.lib    - Cache de símbolos
+fp-lib-table         - Tabela de footprints</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Desenhando Esquemático (Eeschema)</h2>
+            <p>Crie o diagrama do circuito:</p>
+            <ul>
+                <li>Pressione <strong>A</strong> para adicionar símbolo</li>
+                <li>Busque componente (ex: "LED", "R", "Arduino_Nano")</li>
+                <li>Posicione no esquemático</li>
+                <li>Pressione <strong>W</strong> para conectar fios</li>
+                <li>Pressione <strong>P</strong> para adicionar Power (VCC, GND)</li>
+                <li>Pressione <strong>V</strong> para editar valores</li>
+            </ul>
+            <div class="code-block">Atalhos Essenciais:
+A - Add symbol
+W - Wire (fio)
+P - Power symbol
+L - Label (rótulo)
+V - Value (editar valor)
+M - Move
+R - Rotate
+X - Mirror X
+Y - Mirror Y
+Delete - Excluir</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Associando Footprints</h2>
+            <p>Vincule símbolos aos encapsulamentos físicos:</p>
+            <ul>
+                <li>Tools → Assign Footprints</li>
+                <li>Para cada componente, selecione footprint:
+                    <ul>
+                        <li>Resistor: Resistor_SMD:R_0805</li>
+                        <li>LED: LED_SMD:LED_0805</li>
+                        <li>Capacitor: Capacitor_SMD:C_0805</li>
+                        <li>Arduino: Module:Arduino_Nano</li>
+                    </ul>
+                </li>
+                <li>Clique em "Apply, Save Schematic & Continue"</li>
+            </ul>
+            <div class="info-box">
+                <strong>Tipos de Encapsulamento:</strong>
+                <ul>
+                    <li><strong>THT:</strong> Through-Hole (furos passantes)</li>
+                    <li><strong>SMD:</strong> Surface Mount (montagem superficial)</li>
+                    <li><strong>0805, 0603:</strong> Tamanhos SMD (em polegadas)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>5. Verificação Elétrica (ERC)</h2>
+            <p>Verifique erros no esquemático:</p>
+            <ul>
+                <li>Clique em ícone de inseto (Run ERC)</li>
+                <li>Corrija erros apontados:
+                    <ul>
+                        <li>Pinos não conectados</li>
+                        <li>Conflitos de alimentação</li>
+                        <li>Labels duplicados</li>
+                    </ul>
+                </li>
+                <li>Avisos podem ser ignorados se intencionais</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>6. Gerando Netlist e Abrindo PCB</h2>
+            <p>Transfira esquemático para layout:</p>
+            <ul>
+                <li>Tools → Update PCB from Schematic (F8)</li>
+                <li>Clique em "Update PCB"</li>
+                <li>Pcbnew abre automaticamente</li>
+                <li>Componentes aparecem agrupados</li>
+                <li>Linhas brancas (ratsnest) mostram conexões</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>7. Layout da PCB (Pcbnew)</h2>
+            <p>Organize componentes e roteie trilhas:</p>
+            <div class="code-block">Passo a Passo:
+1. Defina tamanho da placa:
+   - Edge.Cuts layer
+   - Desenhe retângulo (borda)
+
+2. Posicione componentes:
+   - Arraste para dentro da placa
+   - Rotacione com R
+   - Organize logicamente
+
+3. Configure Design Rules:
+   - File → Board Setup
+   - Design Rules → Constraints
+   - Track width: 0.25mm (mínimo)
+   - Clearance: 0.2mm
+
+4. Roteie trilhas:
+   - X - Iniciar trilha
+   - V - Via (mudar camada)
+   - Siga ratsnest (linhas brancas)
+
+5. Ground Plane:
+   - Add Filled Zone
+   - Conecte ao GND
+   - F11 - Rebuild zones</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Design Rules Check (DRC)</h2>
+            <p>Verifique erros de fabricação:</p>
+            <ul>
+                <li>Inspect → Design Rules Checker</li>
+                <li>Clique em "Run DRC"</li>
+                <li>Corrija erros:
+                    <ul>
+                        <li>Clearance violations (trilhas muito próximas)</li>
+                        <li>Unconnected items (não conectados)</li>
+                        <li>Track width too small (trilha muito fina)</li>
+                    </ul>
+                </li>
+                <li>DRC limpo = pronto para fabricar!</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>9. Visualização 3D</h2>
+            <p>Veja como ficará a PCB montada:</p>
+            <ul>
+                <li>View → 3D Viewer (Alt+3)</li>
+                <li>Rotacione com mouse</li>
+                <li>Verifique posicionamento</li>
+                <li>Identifique colisões</li>
+                <li>Exporte imagem para documentação</li>
+            </ul>
+            <div class="success-box">
+                <strong>Dica:</strong> Baixe modelos 3D adicionais de componentes em grabcad.com ou kicad.github.io
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>10. Gerando Arquivos de Fabricação</h2>
+            <p>Prepare para enviar à fabricante:</p>
+            <div class="code-block">Gerber Files:
+1. File → Plot
+2. Selecione camadas:
+   ☑ F.Cu (Top Copper)
+   ☑ B.Cu (Bottom Copper)
+   ☑ F.SilkS (Top Silkscreen)
+   ☑ B.SilkS (Bottom Silkscreen)
+   ☑ F.Mask (Top Soldermask)
+   ☑ B.Mask (Bottom Soldermask)
+   ☑ Edge.Cuts (Board Outline)
+3. Plot Format: Gerber
+4. Clique "Plot"
+
+Drill Files:
+1. Clique "Generate Drill Files"
+2. Format: Excellon
+3. Clique "Generate Drill File"
+
+BOM (Bill of Materials):
+1. Eeschema → Tools → Generate BOM
+2. Escolha plugin (ex: bom_csv_grouped)
+3. Gera lista de componentes
+
+Resultado:
+Pasta com arquivos .gbr e .drl
+Compacte em .zip e envie para JLCPCB,
+PCBWay, ou outra fabricante</div>
+        </div>
+
+        <div class="warning-box">
+            <strong>Checklist Antes de Fabricar:</strong>
+            <ul>
+                <li>✓ ERC passou sem erros</li>
+                <li>✓ DRC passou sem erros</li>
+                <li>✓ Todos os componentes têm footprints</li>
+                <li>✓ Polaridade de LEDs e capacitores correta</li>
+                <li>✓ Trilhas de potência adequadas (≥0.5mm)</li>
+                <li>✓ Ground plane conectado</li>
+                <li>✓ Silkscreen legível (referências dos componentes)</li>
+                <li>✓ Furos de montagem adicionados</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Recursos Adicionais:</strong>
+            <ul>
+                <li>Documentação: docs.kicad.org</li>
+                <li>Fórum: forum.kicad.info</li>
+                <li>Tutoriais: YouTube - "Getting to Blinky"</li>
+                <li>Bibliotecas: github.com/KiCad</li>
+                <li>Plugins: kicad-pcb.org/external-tools</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

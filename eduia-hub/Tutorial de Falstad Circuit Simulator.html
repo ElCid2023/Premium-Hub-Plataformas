@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Falstad Circuit Simulator</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Tutorial Falstad Circuit Simulator</h1>
+        <p class="subtitle">Simulador de Circuitos Eletrônicos em Tempo Real</p>
+
+        <div class="step">
+            <h2>1. Introdução ao Falstad</h2>
+            <p>Falstad é um simulador online gratuito que mostra o comportamento de circuitos eletrônicos em tempo real com animações visuais de corrente e tensão.</p>
+            <ul>
+                <li>Acesse <strong>falstad.com/circuit/circuitjs.html</strong></li>
+                <li>Não requer instalação ou cadastro</li>
+                <li>Funciona direto no navegador</li>
+                <li>Visualização em tempo real</li>
+            </ul>
+            <div class="info-box">
+                <strong>Ideal para:</strong> Aprender conceitos básicos, visualizar corrente elétrica, testar circuitos rapidamente, ensino de eletrônica.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Interface e Controles</h2>
+            <p>Navegação básica:</p>
+            <ul>
+                <li><strong>Botão Direito:</strong> Menu de componentes</li>
+                <li><strong>Arrastar:</strong> Mover componentes</li>
+                <li><strong>Clique:</strong> Selecionar e editar</li>
+                <li><strong>Delete:</strong> Remover componente</li>
+                <li><strong>Espaço:</strong> Pausar/Continuar simulação</li>
+            </ul>
+            <div class="code-block">Controles Principais:
+Run/Stop - Iniciar/Parar simulação
+Reset - Reiniciar circuito
+Speed - Velocidade da simulação
+Current Speed - Mostrar corrente
+Voltage Color - Cores de tensão
+Power Brightness - Brilho da potência</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Primeiro Circuito: LED Simples</h2>
+            <p>Crie um circuito básico com LED:</p>
+            <ul>
+                <li>Botão direito → Draw → Add Voltage Source (DC)</li>
+                <li>Botão direito → Passive Components → Add Resistor</li>
+                <li>Botão direito → Active Components → Add LED</li>
+                <li>Conecte: Fonte (+) → Resistor → LED → Fonte (-)</li>
+                <li>Clique no resistor para ajustar valor (220Ω)</li>
+                <li>Observe LED acender e corrente fluir</li>
+            </ul>
+            <div class="code-block">Valores Típicos:
+Fonte: 5V DC
+Resistor: 220Ω
+LED: Vermelho (Vf ≈ 2V)
+
+Cálculo da Corrente:
+I = (Vcc - Vled) / R
+I = (5V - 2V) / 220Ω
+I ≈ 13.6mA ✓</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Visualizando Sinais</h2>
+            <p>Use osciloscópio e voltímetro virtuais:</p>
+            <ul>
+                <li>Clique com botão direito em um fio</li>
+                <li>Selecione "View in Scope"</li>
+                <li>Janela de osciloscópio aparece embaixo</li>
+                <li>Adicione múltiplos sinais para comparar</li>
+                <li>Ajuste escala de tempo e amplitude</li>
+            </ul>
+            <div class="info-box">
+                <strong>Cores no Circuito:</strong>
+                <ul>
+                    <li>Verde: Tensão positiva</li>
+                    <li>Cinza: Tensão zero (GND)</li>
+                    <li>Vermelho: Tensão negativa</li>
+                    <li>Pontos amarelos: Corrente fluindo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>5. Circuitos AC: Filtro RC</h2>
+            <p>Simule filtro passa-baixas:</p>
+            <div class="code-block">Componentes:
+- AC Voltage Source: 1V, 1kHz
+- Resistor: 1kΩ
+- Capacitor: 1µF
+- Ground
+
+Conexão:
+Fonte AC → Resistor → Capacitor → GND
+                    ↓
+                  Vout
+
+Frequência de Corte:
+fc = 1 / (2π × R × C)
+fc = 1 / (2π × 1000 × 1×10⁻⁶)
+fc ≈ 159 Hz
+
+Teste:
+- 100Hz: Sinal passa (pouca atenuação)
+- 1kHz: Sinal atenuado
+- 10kHz: Sinal muito atenuado</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Transistor como Chave</h2>
+            <p>Controle LED com transistor NPN:</p>
+            <div class="code-block">Circuito:
+VCC (5V) → RC (1kΩ) → LED → Coletor (NPN)
+Emissor → GND
+Base ← RB (10kΩ) ← Entrada (0V/5V)
+
+Funcionamento:
+- Entrada 0V: Transistor OFF, LED apagado
+- Entrada 5V: Transistor ON, LED aceso
+
+Cálculo:
+IB = (Vin - VBE) / RB
+IB = (5V - 0.7V) / 10kΩ = 0.43mA
+
+IC = β × IB (β ≈ 100)
+IC ≈ 43mA (suficiente para LED)</div>
+        </div>
+
+        <div class="step">
+            <h2>7. Circuitos Digitais</h2>
+            <p>Simule portas lógicas e flip-flops:</p>
+            <ul>
+                <li>Botão direito → Digital Chips → Logic Gates</li>
+                <li>Adicione AND, OR, NOT, XOR</li>
+                <li>Use switches para entrada</li>
+                <li>Adicione LEDs para saída</li>
+                <li>Crie circuitos combinacionais</li>
+            </ul>
+            <div class="code-block">Exemplo: Somador Completo (Full Adder)
+Entradas: A, B, Cin
+Saídas: Sum, Cout
+
+Sum = A XOR B XOR Cin
+Cout = (A AND B) OR (Cin AND (A XOR B))
+
+Teste todas as combinações:
+A B Cin | Sum Cout
+0 0  0  |  0   0
+0 0  1  |  1   0
+0 1  0  |  1   0
+0 1  1  |  0   1
+...</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Amplificador Operacional</h2>
+            <p>Simule circuitos com op-amp:</p>
+            <div class="code-block">Amplificador Não-Inversor:
+Componentes:
+- Op-Amp (741)
+- R1: 1kΩ (feedback)
+- R2: 10kΩ (entrada)
+- Fonte ±15V
+- Sinal: 100mV, 1kHz
+
+Ganho:
+Av = 1 + (R1/R2)
+Av = 1 + (10k/1k) = 11
+
+Vout = Vin × Av
+Vout = 100mV × 11 = 1.1V
+
+Observe no scope:
+- Entrada: 100mV senoidal
+- Saída: 1.1V senoidal (em fase)</div>
+        </div>
+
+        <div class="step">
+            <h2>9. Salvando e Compartilhando</h2>
+            <p>Exporte seus circuitos:</p>
+            <ul>
+                <li><strong>File → Export as Link:</strong> Gera URL do circuito</li>
+                <li><strong>File → Export as Text:</strong> Código do circuito</li>
+                <li><strong>File → Export as Image:</strong> PNG do circuito</li>
+                <li><strong>File → Import from Text:</strong> Carrega circuito salvo</li>
+            </ul>
+            <div class="success-box">
+                <strong>Dica:</strong> Salve o link do circuito para acessar depois ou compartilhar com colegas!
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>10. Circuitos Prontos para Estudar</h2>
+            <p>Explore exemplos incluídos:</p>
+            <ul>
+                <li><strong>Circuits → Basics:</strong> Divisor de tensão, Lei de Ohm</li>
+                <li><strong>Circuits → Passive Filters:</strong> Passa-baixas, passa-altas</li>
+                <li><strong>Circuits → Active Filters:</strong> Filtros com op-amp</li>
+                <li><strong>Circuits → Transistors:</strong> Amplificadores, chaves</li>
+                <li><strong>Circuits → Op-Amps:</strong> Diversos circuitos</li>
+                <li><strong>Circuits → Logic Gates:</strong> Portas lógicas</li>
+                <li><strong>Circuits → Sequential Logic:</strong> Flip-flops, contadores</li>
+            </ul>
+        </div>
+
+        <div class="warning-box">
+            <strong>Limitações:</strong>
+            <ul>
+                <li>Modelos simplificados (não 100% realistas)</li>
+                <li>Não simula temperatura ou ruído</li>
+                <li>Componentes limitados comparado a SPICE</li>
+                <li>Melhor para aprendizado que design profissional</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <strong>Alternativas:</strong>
+            <ul>
+                <li><strong>LTspice:</strong> Mais preciso, desktop</li>
+                <li><strong>CircuitLab:</strong> Online, mais profissional</li>
+                <li><strong>EveryCircuit:</strong> Mobile, visual</li>
+                <li><strong>Tinkercad:</strong> Com Arduino</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

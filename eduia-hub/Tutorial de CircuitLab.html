@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial CircuitLab - Simulador Online</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Tutorial CircuitLab</h1>
+        <p class="subtitle">Simulador de Circuitos Online com Análise Inteligente</p>
+
+        <div class="step">
+            <h2>1. Introdução ao CircuitLab</h2>
+            <p>CircuitLab é um simulador SPICE online que permite criar, simular e analisar circuitos eletrônicos diretamente no navegador, sem necessidade de instalação.</p>
+            <div class="info-box">
+                <strong>Recursos Principais:</strong>
+                <ul>
+                    <li>Simulação SPICE completa (AC, DC, Transiente)</li>
+                    <li>Biblioteca extensa de componentes</li>
+                    <li>Análise de frequência e resposta temporal</li>
+                    <li>Gráficos interativos e osciloscópio virtual</li>
+                    <li>Compartilhamento de circuitos via link</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Criando Primeiro Circuito</h2>
+            <p>Passos para começar:</p>
+            <ul>
+                <li>Acesse <strong>circuitlab.com</strong></li>
+                <li>Clique em "Build New Schematic"</li>
+                <li>Arraste componentes da barra lateral</li>
+                <li>Conecte com fios (clique nos terminais)</li>
+                <li>Configure valores dos componentes</li>
+            </ul>
+            <div class="code-block">Exemplo: Divisor de Tensão
+Componentes:
+- Fonte DC: 12V
+- R1: 10kΩ
+- R2: 10kΩ
+- GND (terra)
+
+Cálculo: Vout = Vin × (R2 / (R1 + R2))
+Vout = 12V × (10k / 20k) = 6V</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Simulação DC (Ponto de Operação)</h2>
+            <p>Analise tensões e correntes em regime permanente:</p>
+            <ul>
+                <li>Clique em "Simulate" → "DC Operating Point"</li>
+                <li>Visualize tensões em cada nó</li>
+                <li>Veja correntes em cada ramo</li>
+                <li>Verifique potência dissipada</li>
+            </ul>
+            <div class="code-block">Exemplo: Análise de Transistor
+Circuito: Amplificador Emissor Comum
+- VCC = 12V
+- RC = 1kΩ
+- RB = 100kΩ
+- Transistor NPN (2N2222)
+
+Resultados esperados:
+- VCE ≈ 6V (ponto médio)
+- IC ≈ 6mA
+- IB ≈ 60µA
+- β = IC/IB ≈ 100</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Simulação AC (Análise de Frequência)</h2>
+            <p>Estude resposta em frequência de filtros e amplificadores:</p>
+            <ul>
+                <li>Adicione fonte AC ao circuito</li>
+                <li>Simulate → AC Analysis</li>
+                <li>Defina faixa de frequência (ex: 1Hz a 1MHz)</li>
+                <li>Visualize diagrama de Bode (magnitude e fase)</li>
+            </ul>
+            <div class="code-block">Exemplo: Filtro Passa-Baixas RC
+Componentes:
+- R = 1kΩ
+- C = 1µF
+- Fonte AC: 1V
+
+Frequência de corte:
+fc = 1 / (2π × R × C)
+fc = 1 / (2π × 1000 × 1×10⁻⁶)
+fc ≈ 159 Hz
+
+Atenuação: -3dB em fc
+Roll-off: -20dB/década</div>
+        </div>
+
+        <div class="step">
+            <h2>5. Simulação Transiente (Tempo)</h2>
+            <p>Observe comportamento do circuito ao longo do tempo:</p>
+            <ul>
+                <li>Simulate → Time Domain</li>
+                <li>Defina tempo de simulação</li>
+                <li>Use fontes pulsadas ou senoidais</li>
+                <li>Analise formas de onda</li>
+            </ul>
+            <div class="code-block">Exemplo: Circuito RC (Carga/Descarga)
+Setup:
+- Fonte pulsada: 0V → 5V, período 10ms
+- R = 10kΩ
+- C = 100µF
+
+Constante de tempo:
+τ = R × C = 10k × 100µ = 1 segundo
+
+Tempo para 63% da carga: τ
+Tempo para 99% da carga: 5τ = 5 segundos</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Componentes Avançados</h2>
+            <p>Biblioteca de componentes do CircuitLab:</p>
+            <ul>
+                <li><strong>Passivos:</strong> Resistores, capacitores, indutores</li>
+                <li><strong>Semicondutores:</strong> Diodos, transistores, MOSFETs</li>
+                <li><strong>Amplificadores Operacionais:</strong> 741, LM358, TL081</li>
+                <li><strong>Fontes:</strong> DC, AC, pulsada, arbitrária</li>
+                <li><strong>Instrumentos:</strong> Voltímetro, amperímetro, osciloscópio</li>
+            </ul>
+            <div class="info-box">
+                <strong>Dica:</strong> Clique duas vezes no componente para editar parâmetros detalhados.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>7. Projeto: Amplificador Operacional</h2>
+            <div class="code-block">Amplificador Não-Inversor
+Componentes:
+- Op-Amp 741
+- R1 = 1kΩ (feedback)
+- R2 = 10kΩ (entrada)
+- Fonte ±15V
+- Sinal entrada: 100mV, 1kHz
+
+Ganho:
+Av = 1 + (R1/R2)
+Av = 1 + (10k/1k) = 11
+Vout = 100mV × 11 = 1.1V
+
+Análise AC:
+- Ganho: 20.8dB
+- Bandwidth: ~100kHz (741)
+- Slew Rate: 0.5V/µs</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Análise de Fourier (FFT)</h2>
+            <p>Analise conteúdo harmônico de sinais:</p>
+            <ul>
+                <li>Execute simulação transiente</li>
+                <li>Clique com botão direito no gráfico</li>
+                <li>Selecione "View FFT"</li>
+                <li>Identifique frequências presentes</li>
+            </ul>
+            <div class="code-block">Exemplo: Retificador de Onda Completa
+Entrada: Senoidal 60Hz
+Saída: Pulsante 120Hz + harmônicas
+
+Componentes de Fourier:
+- Fundamental: 120Hz
+- 2ª harmônica: 240Hz
+- 3ª harmônica: 360Hz
+- ...</div>
+        </div>
+
+        <div class="step">
+            <h2>9. Exportação e Compartilhamento</h2>
+            <ul>
+                <li><strong>Salvar:</strong> File → Save (requer conta)</li>
+                <li><strong>Exportar Imagem:</strong> File → Export → PNG/SVG</li>
+                <li><strong>Exportar Dados:</strong> Copie valores do gráfico</li>
+                <li><strong>Compartilhar:</strong> File → Share → Gerar link público</li>
+                <li><strong>Netlist SPICE:</strong> File → Export → SPICE Netlist</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Limitações da Versão Gratuita:</strong> Número limitado de circuitos salvos. Considere upgrade para projetos profissionais.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>10. Dicas e Truques</h2>
+            <div class="success-box">
+                <strong>Otimização de Simulações:</strong>
+                <ul>
+                    <li>Use GND (terra) em todos os circuitos</li>
+                    <li>Adicione resistores de pull-down para evitar nós flutuantes</li>
+                    <li>Configure timestep adequado para sinais rápidos</li>
+                    <li>Use modelos SPICE realistas para componentes críticos</li>
+                    <li>Verifique convergência da simulação</li>
+                    <li>Compare resultados com cálculos teóricos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>Recursos Adicionais:</strong>
+            <ul>
+                <li>Tutoriais: circuitlab.com/tutorials</li>
+                <li>Exemplos: Biblioteca de circuitos prontos</li>
+                <li>Suporte: Forum e documentação</li>
+                <li>Alternativas: LTspice (desktop), Falstad (básico)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

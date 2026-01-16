@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Fritzing - Design de Circuitos</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔌 Tutorial Fritzing</h1>
+        <p class="subtitle">Software para Design de Circuitos Eletrônicos e PCB</p>
+
+        <div class="step">
+            <h2>1. Instalação do Fritzing</h2>
+            <p>Baixe e instale o Fritzing:</p>
+            <ul>
+                <li>Acesse <strong>fritzing.org</strong></li>
+                <li>Baixe a versão para seu sistema operacional</li>
+                <li>Instale seguindo o assistente</li>
+                <li>Faça uma doação (opcional) para apoiar o projeto</li>
+            </ul>
+            <div class="info-box">
+                <strong>Requisitos do Sistema:</strong> Windows 7+, macOS 10.12+, ou Linux. Mínimo 2GB RAM.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Interface do Fritzing</h2>
+            <p>O Fritzing possui 3 visualizações principais:</p>
+            <ul>
+                <li><strong>Breadboard:</strong> Prototipagem visual com protoboard virtual</li>
+                <li><strong>Schematic:</strong> Diagrama esquemático profissional</li>
+                <li><strong>PCB:</strong> Design de placa de circuito impresso</li>
+            </ul>
+            <div class="code-block">Atalhos Úteis:
+Ctrl+N - Novo projeto
+Ctrl+S - Salvar
+Ctrl+Z - Desfazer
+Ctrl+C/V - Copiar/Colar
+Delete - Excluir componente
+R - Rotacionar componente
+Ctrl+Scroll - Zoom</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Criando Circuito na Breadboard</h2>
+            <p>Passo a passo para criar seu primeiro circuito:</p>
+            <ul>
+                <li>Arraste componentes da biblioteca à direita</li>
+                <li>Posicione no protoboard virtual</li>
+                <li>Clique nos terminais para criar conexões</li>
+                <li>Use fios coloridos para organização</li>
+            </ul>
+            <div class="code-block">Exemplo: LED Piscante
+Componentes:
+- 1x Arduino Uno
+- 1x LED 5mm (vermelho)
+- 1x Resistor 220Ω
+- Fios jumper
+
+Conexões:
+Arduino Pino 13 → Resistor → LED (ânodo)
+LED (cátodo) → Arduino GND</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Criando Esquemático</h2>
+            <p>Converta seu circuito em diagrama profissional:</p>
+            <ul>
+                <li>Clique na aba "Schematic"</li>
+                <li>Os componentes aparecem automaticamente</li>
+                <li>Reorganize para melhor visualização</li>
+                <li>Adicione labels e anotações</li>
+                <li>Exporte como imagem ou PDF</li>
+            </ul>
+            <div class="info-box">
+                <strong>Dica:</strong> Use a ferramenta "Autoroute" para organizar conexões automaticamente.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>5. Design de PCB</h2>
+            <p>Crie sua placa de circuito impresso:</p>
+            <ul>
+                <li>Clique na aba "PCB"</li>
+                <li>Defina tamanho da placa</li>
+                <li>Posicione componentes</li>
+                <li>Roteie trilhas manualmente ou use autoroute</li>
+                <li>Adicione plano de terra (ground plane)</li>
+                <li>Verifique regras de design (DRC)</li>
+            </ul>
+            <div class="code-block">Configurações Recomendadas:
+Largura de trilha: 0.4mm (mínimo)
+Espaçamento: 0.3mm (mínimo)
+Diâmetro de via: 0.8mm
+Camadas: 1 ou 2 (para iniciantes)</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Biblioteca de Componentes</h2>
+            <p>Adicione novos componentes ao Fritzing:</p>
+            <ul>
+                <li>Menu: <strong>Parts → Import</strong></li>
+                <li>Baixe componentes de fritzing.org/parts</li>
+                <li>Crie componentes personalizados com Part Editor</li>
+                <li>Compartilhe suas criações com a comunidade</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Atenção:</strong> Sempre verifique as dimensões dos componentes personalizados antes de fabricar a PCB.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>7. Exportação e Fabricação</h2>
+            <p>Prepare arquivos para fabricação:</p>
+            <ul>
+                <li><strong>Gerber Files:</strong> File → Export → for Production → Extended Gerber</li>
+                <li><strong>PDF:</strong> File → Export → as PDF</li>
+                <li><strong>Imagem:</strong> File → Export → as Image</li>
+                <li><strong>Lista de Materiais (BOM):</strong> File → Export → Bill of Materials</li>
+            </ul>
+            <div class="code-block">Arquivos Gerber Gerados:
+- .GTL (Top Copper)
+- .GBL (Bottom Copper)
+- .GTO (Top Silkscreen)
+- .GBO (Bottom Silkscreen)
+- .GTS (Top Soldermask)
+- .GBS (Bottom Soldermask)
+- .TXT (Drill file)</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Projeto Prático: Sensor de Temperatura</h2>
+            <div class="code-block">Componentes:
+- 1x Arduino Nano
+- 1x Sensor LM35
+- 1x Display LCD 16x2
+- 1x Potenciômetro 10kΩ
+- Resistores e capacitores
+
+Esquema de Conexões:
+LM35:
+  VCC → Arduino 5V
+  GND → Arduino GND
+  OUT → Arduino A0
+
+LCD 16x2:
+  VSS → GND
+  VDD → 5V
+  V0 → Potenciômetro (contraste)
+  RS → Pino 12
+  RW → GND
+  E → Pino 11
+  D4-D7 → Pinos 5, 4, 3, 2
+  A → 5V (backlight)
+  K → GND</div>
+        </div>
+
+        <div class="step">
+            <h2>9. Dicas Avançadas</h2>
+            <div class="success-box">
+                <strong>Otimização de PCB:</strong>
+                <ul>
+                    <li>Mantenha trilhas curtas e diretas</li>
+                    <li>Separe sinais analógicos e digitais</li>
+                    <li>Use plano de terra para reduzir ruído</li>
+                    <li>Adicione capacitores de desacoplamento (0.1µF) próximos aos CIs</li>
+                    <li>Verifique clearance entre componentes</li>
+                    <li>Adicione furos de montagem</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>10. Recursos e Comunidade</h2>
+            <ul>
+                <li><strong>Fórum:</strong> forum.fritzing.org</li>
+                <li><strong>Projetos:</strong> fritzing.org/projects</li>
+                <li><strong>Tutoriais:</strong> YouTube e documentação oficial</li>
+                <li><strong>Fabricantes PCB:</strong> JLCPCB, PCBWay, Aisler</li>
+            </ul>
+            <div class="info-box">
+                <strong>Alternativas ao Fritzing:</strong> KiCad (mais profissional), EasyEDA (online), Eagle (Autodesk)
+            </div>
+        </div>
+    </div>
+</body>
+</html>

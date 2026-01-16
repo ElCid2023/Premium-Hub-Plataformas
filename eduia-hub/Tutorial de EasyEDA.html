@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial EasyEDA - Design PCB Online</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖥️ Tutorial EasyEDA</h1>
+        <p class="subtitle">Ferramenta Online para Design de PCB com IA para Roteamento</p>
+
+        <div class="step">
+            <h2>1. Começando com EasyEDA</h2>
+            <p>EasyEDA é uma plataforma online gratuita para design de circuitos e PCB, integrada com fabricação JLCPCB.</p>
+            <ul>
+                <li>Acesse <strong>easyeda.com</strong></li>
+                <li>Crie conta gratuita</li>
+                <li>Clique em "New Project"</li>
+                <li>Escolha "Schematic" para começar</li>
+            </ul>
+            <div class="info-box">
+                <strong>Vantagens:</strong> Biblioteca gigante (5M+ componentes), simulação SPICE, roteamento automático, fabricação integrada, trabalho em nuvem.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Criando Esquemático</h2>
+            <p>Desenhe o diagrama do seu circuito:</p>
+            <ul>
+                <li>Use barra de ferramentas à esquerda</li>
+                <li>Busque componentes: Shift+F ou ícone de busca</li>
+                <li>Arraste componentes para área de trabalho</li>
+                <li>Conecte com fios (Wire tool ou W)</li>
+                <li>Adicione GND e VCC</li>
+                <li>Nomeie nets importantes</li>
+            </ul>
+            <div class="code-block">Atalhos Úteis:
+W - Wire (fio)
+N - Net label
+G - Ground
+P - Power
+R - Rotate
+Delete - Excluir
+Ctrl+S - Salvar
+Ctrl+Z - Desfazer</div>
+        </div>
+
+        <div class="step">
+            <h2>3. Biblioteca de Componentes</h2>
+            <p>Encontre qualquer componente facilmente:</p>
+            <ul>
+                <li><strong>LCSC:</strong> Componentes com estoque JLCPCB</li>
+                <li><strong>System:</strong> Componentes genéricos</li>
+                <li><strong>User:</strong> Seus componentes personalizados</li>
+                <li><strong>Favorite:</strong> Componentes favoritos</li>
+            </ul>
+            <div class="code-block">Exemplo: Buscar Arduino Nano
+1. Clique em "Place" → "Component"
+2. Digite "Arduino Nano"
+3. Filtre por "LCSC" para componentes disponíveis
+4. Selecione e posicione no esquemático
+
+Componentes Populares:
+- Microcontroladores: ESP32, STM32, ATmega328
+- Sensores: DHT22, BMP280, MPU6050
+- Displays: OLED SSD1306, LCD 16x2
+- Reguladores: LM7805, AMS1117</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Conversão para PCB</h2>
+            <p>Transforme esquemático em layout de PCB:</p>
+            <ul>
+                <li>Clique em "Design" → "Convert Schematic to PCB"</li>
+                <li>Componentes aparecem fora da placa</li>
+                <li>Defina tamanho da placa (Board Outline)</li>
+                <li>Posicione componentes dentro da placa</li>
+                <li>Organize para otimizar roteamento</li>
+            </ul>
+            <div class="info-box">
+                <strong>Dica:</strong> Coloque componentes relacionados próximos. Mantenha conectores nas bordas.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>5. Roteamento Automático com IA</h2>
+            <p>Use o auto-router inteligente do EasyEDA:</p>
+            <ul>
+                <li>Clique em "Auto Router" na barra superior</li>
+                <li>Configure parâmetros:
+                    <ul>
+                        <li>Track Width: 0.254mm (padrão)</li>
+                        <li>Clearance: 0.254mm</li>
+                        <li>Via Diameter: 0.8mm</li>
+                    </ul>
+                </li>
+                <li>Clique em "Run" e aguarde</li>
+                <li>Revise e ajuste manualmente se necessário</li>
+            </ul>
+            <div class="code-block">Configurações Recomendadas:
+Trilhas de Sinal: 0.3mm
+Trilhas de Potência: 0.6mm - 1.0mm
+Clearance: 0.25mm (mínimo)
+Via: 0.8mm diâmetro, 0.4mm furo
+
+Camadas:
+- Top Layer (vermelho)
+- Bottom Layer (azul)
+- Ground Plane (opcional)</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Design Rules Check (DRC)</h2>
+            <p>Verifique erros antes de fabricar:</p>
+            <ul>
+                <li>Tools → Design Rule Check</li>
+                <li>Corrija erros apontados (vermelho)</li>
+                <li>Revise avisos (amarelo)</li>
+                <li>Verifique clearance entre trilhas</li>
+                <li>Confirme largura mínima de trilhas</li>
+            </ul>
+            <div class="warning-box">
+                <strong>Erros Comuns:</strong> Trilhas muito finas, clearance insuficiente, vias muito pequenas, componentes sobrepostos.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>7. Plano de Terra (Ground Plane)</h2>
+            <p>Adicione plano de cobre para GND:</p>
+            <ul>
+                <li>Selecione camada (Top ou Bottom)</li>
+                <li>Tools → Copper Area</li>
+                <li>Desenhe área cobrindo toda placa</li>
+                <li>Conecte ao net "GND"</li>
+                <li>Configure clearance (0.3mm)</li>
+                <li>Clique em "Rebuild" para atualizar</li>
+            </ul>
+            <div class="code-block">Benefícios do Ground Plane:
+✓ Reduz ruído e interferência
+✓ Melhora dissipação de calor
+✓ Facilita roteamento
+✓ Reduz impedância de retorno
+✓ Protege contra EMI</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Visualização 3D</h2>
+            <p>Veja como ficará sua PCB montada:</p>
+            <ul>
+                <li>Clique em "3D View" (ícone de cubo)</li>
+                <li>Rotacione com mouse</li>
+                <li>Verifique posicionamento de componentes</li>
+                <li>Identifique possíveis colisões</li>
+                <li>Exporte imagem para documentação</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>9. Fabricação com JLCPCB</h2>
+            <p>Envie direto para fabricação:</p>
+            <ul>
+                <li>Clique em "Fabrication Output"</li>
+                <li>Selecione "JLCPCB"</li>
+                <li>Configure opções:
+                    <ul>
+                        <li>Quantidade: 5, 10, 20...</li>
+                        <li>Camadas: 1, 2, 4...</li>
+                        <li>Cor: Verde, azul, preto...</li>
+                        <li>Acabamento: HASL, ENIG...</li>
+                    </ul>
+                </li>
+                <li>Adicione montagem SMT (opcional)</li>
+                <li>Finalize pedido</li>
+            </ul>
+            <div class="code-block">Custos Típicos (2024):
+5 PCBs 10x10cm, 2 camadas: ~$2 USD
+10 PCBs 10x10cm, 2 camadas: ~$5 USD
+Frete: $3-20 USD (depende do país)
+Tempo: 3-7 dias produção + frete</div>
+        </div>
+
+        <div class="step">
+            <h2>10. Projeto Prático: Placa Arduino Shield</h2>
+            <div class="code-block">Especificações:
+- Tamanho: 68.6mm x 53.4mm
+- Furos compatíveis com Arduino Uno
+- Área de prototipagem
+- LEDs indicadores
+- Botões e conectores
+
+Componentes:
+- Headers 2.54mm (pinos Arduino)
+- LEDs 5mm + resistores 220Ω
+- Botões tácteis
+- Capacitores desacoplamento 100nF
+- Conector barrel jack (opcional)
+
+Passos:
+1. Importe template Arduino Shield
+2. Adicione seus componentes
+3. Roteie conexões
+4. Adicione silkscreen (textos)
+5. Verifique DRC
+6. Gere Gerbers
+7. Fabrique!</div>
+        </div>
+
+        <div class="success-box">
+            <strong>Recursos Adicionais:</strong>
+            <ul>
+                <li>Tutoriais: easyeda.com/page/tutorial</li>
+                <li>Fórum: easyeda.com/forum</li>
+                <li>Projetos públicos: Biblioteca de exemplos</li>
+                <li>Vídeos: YouTube EasyEDA Official</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

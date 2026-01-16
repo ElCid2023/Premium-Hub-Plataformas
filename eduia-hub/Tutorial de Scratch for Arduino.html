@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Scratch for Arduino - Programação Visual</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧩 Tutorial Scratch for Arduino (S4A)</h1>
+        <p class="subtitle">Programação Visual para Arduino usando Blocos Scratch</p>
+
+        <div class="step">
+            <h2>1. O que é S4A?</h2>
+            <p>Scratch for Arduino (S4A) é uma modificação do Scratch que permite programar Arduino usando blocos visuais, ideal para iniciantes e educação.</p>
+            <div class="info-box">
+                <strong>Características:</strong>
+                <ul>
+                    <li>Interface drag-and-drop (arrastar e soltar)</li>
+                    <li>Programação visual sem código</li>
+                    <li>Comunicação em tempo real com Arduino</li>
+                    <li>Ideal para crianças e iniciantes</li>
+                    <li>Projetos interativos e educacionais</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>2. Instalação e Configuração</h2>
+            <p>Passo a passo para começar:</p>
+            <ul>
+                <li><strong>1.</strong> Baixe S4A em <strong>s4a.cat</strong></li>
+                <li><strong>2.</strong> Instale o programa no seu computador</li>
+                <li><strong>3.</strong> Baixe o firmware S4A para Arduino</li>
+                <li><strong>4.</strong> Abra Arduino IDE e carregue o firmware</li>
+                <li><strong>5.</strong> Conecte Arduino via USB</li>
+                <li><strong>6.</strong> Abra S4A e verifique conexão (sprite verde)</li>
+            </ul>
+            <div class="code-block">Firmware S4A - Pinos Disponíveis:
+Digitais: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+Analógicos: A0, A1, A2, A3, A4, A5
+PWM: 3, 5, 6, 9, 10, 11
+Servos: 4, 7, 8, 12</div>
+            <div class="warning-box">
+                <strong>Importante:</strong> O firmware S4A substitui seu código Arduino. Para voltar ao normal, carregue outro sketch.
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>3. Interface do S4A</h2>
+            <p>Conheça os elementos principais:</p>
+            <ul>
+                <li><strong>Paleta de Blocos:</strong> Esquerda - blocos organizados por categoria</li>
+                <li><strong>Área de Scripts:</strong> Centro - onde você monta o programa</li>
+                <li><strong>Palco:</strong> Superior direita - visualização do projeto</li>
+                <li><strong>Sprites:</strong> Inferior direita - personagens e Arduino</li>
+            </ul>
+            <div class="code-block">Categorias de Blocos:
+🟦 Movimento - Mover sprites na tela
+🟪 Aparência - Mostrar, esconder, falar
+🟥 Som - Tocar sons e notas
+🟩 Caneta - Desenhar na tela
+🟨 Controle - Loops, condições, esperar
+🟦 Sensores - Ler entradas Arduino
+🟧 Operadores - Matemática e lógica
+🟪 Variáveis - Armazenar dados</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Blocos Específicos do Arduino</h2>
+            <p>Blocos exclusivos para controlar o Arduino:</p>
+            <div class="info-box">
+                <strong>Saídas Digitais:</strong>
+                <ul>
+                    <li>"digital [pino] on" - Liga pino (HIGH)</li>
+                    <li>"digital [pino] off" - Desliga pino (LOW)</li>
+                </ul>
+                <strong>Entradas Analógicas:</strong>
+                <ul>
+                    <li>"value of sensor [A0-A5]" - Lê valor (0-1023)</li>
+                </ul>
+                <strong>Servos:</strong>
+                <ul>
+                    <li>"motor [pino] direction [clockwise/counterclockwise]"</li>
+                    <li>"motor [pino] on/off"</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>5. Projeto 1: LED Piscante</h2>
+            <p>Seu primeiro projeto com S4A:</p>
+            <div class="code-block">Material:
+- Arduino Uno
+- LED 5mm
+- Resistor 220Ω
+- Protoboard e fios
+
+Conexões:
+Pino 13 → Resistor → LED (+)
+LED (-) → GND
+
+Blocos S4A:
+[Quando 🏴 clicado]
+[sempre]
+  [digital 13 on]
+  [espere 1 segundos]
+  [digital 13 off]
+  [espere 1 segundos]
+[fim]</div>
+        </div>
+
+        <div class="step">
+            <h2>6. Projeto 2: Botão Controla LED</h2>
+            <p>Leia entrada digital e controle saída:</p>
+            <div class="code-block">Material:
+- Arduino Uno
+- LED + resistor 220Ω
+- Botão push-button
+- Resistor 10kΩ (pull-down)
+
+Conexões:
+Botão: Pino 2 → Botão → 5V
+       Pino 2 → Resistor 10kΩ → GND
+LED: Pino 13 → Resistor → LED → GND
+
+Blocos S4A:
+[Quando 🏴 clicado]
+[sempre]
+  [se <sensor digital 2 = verdadeiro> então]
+    [digital 13 on]
+  [senão]
+    [digital 13 off]
+  [fim se]
+[fim]</div>
+        </div>
+
+        <div class="step">
+            <h2>7. Projeto 3: Potenciômetro e PWM</h2>
+            <p>Controle brilho do LED com potenciômetro:</p>
+            <div class="code-block">Material:
+- Arduino Uno
+- LED + resistor 220Ω
+- Potenciômetro 10kΩ
+
+Conexões:
+Potenciômetro:
+  Terminal 1 → 5V
+  Terminal 2 (central) → A0
+  Terminal 3 → GND
+LED: Pino 9 → Resistor → LED → GND
+
+Blocos S4A:
+[Quando 🏴 clicado]
+[sempre]
+  [definir [brilho] como (valor do sensor A0)]
+  [definir [pwm] como ((brilho) / (4))]
+  [motor 9 direção [pwm]]
+[fim]
+
+Nota: Divide por 4 porque sensor retorna 0-1023
+e PWM aceita 0-255</div>
+        </div>
+
+        <div class="step">
+            <h2>8. Projeto 4: Semáforo Inteligente</h2>
+            <p>Crie um semáforo com 3 LEDs:</p>
+            <div class="code-block">Material:
+- 3 LEDs (vermelho, amarelo, verde)
+- 3 resistores 220Ω
+
+Conexões:
+LED Verde → Pino 10
+LED Amarelo → Pino 11
+LED Vermelho → Pino 12
+Todos com resistores e GND
+
+Blocos S4A:
+[Quando 🏴 clicado]
+[sempre]
+  [digital 10 on] [digital 11 off] [digital 12 off]
+  [espere 5 segundos]
+  [digital 10 off] [digital 11 on]
+  [espere 2 segundos]
+  [digital 11 off] [digital 12 on]
+  [espere 5 segundos]
+[fim]</div>
+        </div>
+
+        <div class="step">
+            <h2>9. Projeto 5: Sensor de Luz (LDR)</h2>
+            <p>Acenda LED automaticamente no escuro:</p>
+            <div class="code-block">Material:
+- LDR (fotoresistor)
+- Resistor 10kΩ
+- LED + resistor 220Ω
+
+Conexões:
+LDR: 5V → LDR → A0 → Resistor 10kΩ → GND
+LED: Pino 13 → Resistor → LED → GND
+
+Blocos S4A:
+[Quando 🏴 clicado]
+[sempre]
+  [definir [luz] como (valor do sensor A0)]
+  [se <(luz) < (300)> então]
+    [digital 13 on]
+    [diga [Está escuro!] por 2 segundos]
+  [senão]
+    [digital 13 off]
+    [diga [Está claro!] por 2 segundos]
+  [fim se]
+[fim]</div>
+        </div>
+
+        <div class="step">
+            <h2>10. Dicas e Recursos</h2>
+            <div class="success-box">
+                <strong>Melhores Práticas:</strong>
+                <ul>
+                    <li>Sempre use resistores com LEDs</li>
+                    <li>Teste conexões antes de programar</li>
+                    <li>Use nomes descritivos para variáveis</li>
+                    <li>Comente seu código com blocos "comentário"</li>
+                    <li>Salve projetos frequentemente</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <strong>Alternativas ao S4A:</strong>
+                <ul>
+                    <li><strong>mBlock:</strong> Mais moderno, suporta mais placas</li>
+                    <li><strong>ArduBlock:</strong> Plugin para Arduino IDE</li>
+                    <li><strong>Snap4Arduino:</strong> Baseado em Snap!</li>
+                    <li><strong>Scratch 3.0 + Extensions:</strong> Versão web com extensões</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="warning-box">
+            <strong>Limitações do S4A:</strong>
+            <ul>
+                <li>Requer conexão USB constante</li>
+                <li>Não grava código no Arduino (executa em tempo real)</li>
+                <li>Pinos fixos (não configuráveis)</li>
+                <li>Projeto descontinuado (última versão 2014)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
