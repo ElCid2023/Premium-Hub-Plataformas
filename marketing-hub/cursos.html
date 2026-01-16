@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Premium - MarketIA Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin: 2rem 0; }
+        .course-card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .price { font-size: 2rem; color: #667eea; font-weight: bold; }
+        .old-price { text-decoration: line-through; color: #999; font-size: 1.2rem; }
+        .buy-btn { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1rem 2rem; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <h1>MarketIA Hub - Cursos Premium</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2>🚀 Domine o Marketing com IA</h2>
+                <p>Cursos completos para transformar você em um especialista</p>
+            </div>
+        </section>
+
+        <section class="courses-section">
+            <div class="container">
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <h3>📈 Marketing com ChatGPT</h3>
+                        <p>Aprenda a criar campanhas vencedoras usando IA</p>
+                        <div class="price-section">
+                            <span class="old-price">R$ 497</span>
+                            <span class="price">R$ 197</span>
+                        </div>
+                        <ul>
+                            <li>✅ 40+ aulas práticas</li>
+                            <li>✅ Templates prontos</li>
+                            <li>✅ Certificado</li>
+                            <li>✅ Suporte 90 dias</li>
+                        </ul>
+                        <button class="buy-btn" onclick="window.open('https://pay.hotmart.com/XXXXXXXX', '_blank')">
+                            Comprar Agora
+                        </button>
+                    </div>
+
+                    <div class="course-card">
+                        <h3>🎨 Design com Canva AI</h3>
+                        <p>Crie designs profissionais em minutos</p>
+                        <div class="price-section">
+                            <span class="old-price">R$ 297</span>
+                            <span class="price">R$ 147</span>
+                        </div>
+                        <ul>
+                            <li>✅ 25+ projetos práticos</li>
+                            <li>✅ Pack de templates</li>
+                            <li>✅ Acesso vitalício</li>
+                            <li>✅ Grupo VIP</li>
+                        </ul>
+                        <button class="buy-btn" onclick="window.open('https://pay.hotmart.com/YYYYYYYY', '_blank')">
+                            Comprar Agora
+                        </button>
+                    </div>
+
+                    <div class="course-card">
+                        <h3>📊 Analytics com IA</h3>
+                        <p>Domine métricas e otimize campanhas</p>
+                        <div class="price-section">
+                            <span class="old-price">R$ 397</span>
+                            <span class="price">R$ 247</span>
+                        </div>
+                        <ul>
+                            <li>✅ Dashboards prontos</li>
+                            <li>✅ Automações</li>
+                            <li>✅ Consultoria 1h</li>
+                            <li>✅ Updates gratuitos</li>
+                        </ul>
+                        <button class="buy-btn" onclick="window.open('https://pay.hotmart.com/ZZZZZZZZ', '_blank')">
+                            Comprar Agora
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

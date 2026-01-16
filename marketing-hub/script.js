@@ -589,7 +589,33 @@ function closeTutorialModal() {
 function showTutorialPDF(iaId) {
     const ia = iasData.find(item => item.id === iaId);
     if (ia) {
-        const htmlUrl = `Tutorial de ${ia.name}.html`;
+        const htmlMap = {
+            1: "Tutorial de CHATGPT.html",
+            2: "Tutorial de Canvas.html",
+            3: "Tutorial de Copy.html",
+            4: "Tutorial de  Hootsuite.html",
+            5: "Tutorial de Google Analytics Intelligence.html",
+            6: "Tutorial de HubSpot AI.html",
+            7: "Tutorial de Jasper AI.html",
+            8: "Tutorial de Buffer AI.html",
+            9: "Tutorial de Mailchimp AI.html",
+            10: "Tutorial de Semrush AI.html",
+            11: "Tutorial de Loom AI.html",
+            12: "Tutorial de Drift AI.html",
+            13: "Tutorial de Meta Pixel.html",
+            14: "Tutorial de Google Tag Manager.html",
+            15: "Tutorial de  Hotjar.html",
+            16: "Tutorial de Writesonic.html",
+            17: "Tutorial de Later AI.html",
+            18: "Tutorial de Typeform AI.html",
+            19: "Tutorial de Figma AI.html",
+            20: "Tutorial de Zapier AI.html",
+            21: "Tutorial de Unsplash AI.html",
+            22: "Tutorial de  Calendly AI.html",
+            23: "Tutorial de Notion AI.html",
+            24: "Tutorial de Sprout Social AI.html"
+        };
+        const htmlUrl = htmlMap[iaId] || `Tutorial de ${ia.name}.html`;
         window.open(htmlUrl, '_blank');
     }
 }
