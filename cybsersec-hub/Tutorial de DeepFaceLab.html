@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - DeepFaceLab</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Tutorial Completo - DeepFaceLab</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> DeepFaceLab é o software mais avançado para criação de deepfakes, permitindo trocar rostos em vídeos com alta qualidade. Usado em produções profissionais de Hollywood.
+        </div>
+
+        <h2>💻 Passo 1: Requisitos do Sistema</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Verifique os requisitos:</strong></p>
+            <ul>
+                <li><strong>GPU:</strong> NVIDIA com 4GB+ VRAM (recomendado 8GB+)</li>
+                <li><strong>RAM:</strong> 16GB mínimo (32GB recomendado)</li>
+                <li><strong>Espaço:</strong> 50GB+ livres no HD/SSD</li>
+                <li><strong>SO:</strong> Windows 10/11 64-bit</li>
+            </ul>
+        </div>
+
+        <h2>📥 Passo 2: Instalação</h2>
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Baixe o DeepFaceLab:</strong></p>
+            <ul>
+                <li>Acesse o GitHub oficial: <code>github.com/iperov/DeepFaceLab</code></li>
+                <li>Baixe a versão mais recente (arquivo .exe ou .torrent)</li>
+                <li>Extraia para uma pasta (ex: C:\DeepFaceLab)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Instale drivers NVIDIA:</strong></p>
+            <ul>
+                <li>Baixe CUDA Toolkit 11.x do site da NVIDIA</li>
+                <li>Instale cuDNN compatível</li>
+                <li>Atualize drivers da GPU para versão mais recente</li>
+            </ul>
+        </div>
+
+        <h2>🎥 Passo 3: Preparando os Vídeos</h2>
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Organize os vídeos:</strong></p>
+            <ul>
+                <li><strong>SRC (source):</strong> Vídeo da pessoa que você quer usar o rosto</li>
+                <li><strong>DST (destination):</strong> Vídeo onde o rosto será aplicado</li>
+                <li>Coloque os vídeos nas pastas workspace</li>
+                <li>Use vídeos em boa qualidade (1080p recomendado)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Extraia frames:</strong></p>
+            <ul>
+                <li>Execute <code>2) extract images from video data_src.bat</code></li>
+                <li>Execute <code>3) extract images from video data_dst.bat</code></li>
+                <li>Aguarde a extração de todos os frames</li>
+            </ul>
+        </div>
+
+        <h2>👤 Passo 4: Extração de Faces</h2>
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Extraia as faces:</strong></p>
+            <ul>
+                <li>Execute <code>4) data_src faceset extract.bat</code></li>
+                <li>Escolha o modelo de detecção (S3FD recomendado)</li>
+                <li>Repita para DST: <code>5) data_dst faceset extract.bat</code></li>
+                <li>Processo pode levar horas dependendo do vídeo</li>
+            </ul>
+        </div>
+
+        <h2>🧠 Passo 5: Treinamento do Modelo</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Inicie o treinamento:</strong></p>
+            <ul>
+                <li>Execute <code>6) train SAEHD.bat</code> (modelo recomendado)</li>
+                <li>Configure parâmetros: batch size, iterations, resolution</li>
+                <li>Deixe treinando por 12-48 horas (quanto mais, melhor)</li>
+                <li>Monitore a perda (loss) - deve diminuir gradualmente</li>
+            </ul>
+        </div>
+
+        <h2>🎨 Passo 6: Conversão e Exportação</h2>
+        <div class="step">
+            <p><span class="step-number">8</span><strong>Converta e exporte:</strong></p>
+            <ul>
+                <li>Execute <code>7) merge SAEHD.bat</code></li>
+                <li>Ajuste configurações: mask mode, color transfer, blur</li>
+                <li>Execute <code>8) merged to mp4.bat</code> para gerar vídeo final</li>
+                <li>Vídeo final estará na pasta workspace</li>
+            </ul>
+        </div>
+
+        <h2>💡 Dicas Avançadas</h2>
+        <div class="success">
+            <ul>
+                <li>Use vídeos com boa iluminação e ângulos similares</li>
+                <li>Quanto mais frames de treinamento, melhor o resultado</li>
+                <li>Ajuste mask para cobrir apenas o rosto</li>
+                <li>Use color transfer para matching de tons de pele</li>
+                <li>Treine por pelo menos 100k iterations</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ USO ÉTICO E LEGAL:</strong>
+            <ul>
+                <li>NÃO crie conteúdo para difamação ou fraude</li>
+                <li>NÃO crie deepfakes não consensuais</li>
+                <li>Sempre divulgue que o conteúdo é sintético</li>
+                <li>Respeite leis de direitos autorais e privacidade</li>
+                <li>Use apenas para fins educacionais, artísticos ou de pesquisa</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>

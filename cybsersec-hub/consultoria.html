@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Premium - CyberSec AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-card { background: var(--card-bg); padding: 2rem; border-radius: 15px; margin: 1rem 0; border: 1px solid var(--border-color); }
+        .service-price { font-size: 2.5rem; color: var(--accent-color); font-weight: bold; margin: 1rem 0; }
+        .service-features { list-style: none; margin: 1rem 0; }
+        .service-features li { padding: 0.5rem 0; color: var(--text-color); }
+        .service-features li::before { content: '✓'; color: var(--accent-color); font-weight: bold; margin-right: 0.5rem; }
+        .contact-btn { background: var(--accent-color); color: white; padding: 1rem 2rem; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-shield-alt"></i> CyberSec AI - Consultoria</h1>
+            <p>Serviços Especializados em Cybersegurança com IA</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section style="padding: 2rem 0;">
+            <h2 style="text-align: center; color: var(--accent-color); margin-bottom: 2rem;">
+                🛡️ Consultoria Especializada
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <div class="service-card">
+                    <h3>🔍 Auditoria de Segurança</h3>
+                    <div class="service-price">R$ 2.500</div>
+                    <p>Análise completa da sua infraestrutura</p>
+                    <ul class="service-features">
+                        <li>Teste de penetração</li>
+                        <li>Análise de vulnerabilidades</li>
+                        <li>Relatório detalhado</li>
+                        <li>Plano de correção</li>
+                        <li>Suporte 30 dias</li>
+                    </ul>
+                    <button class="contact-btn" onclick="openWhatsApp('auditoria')">
+                        Solicitar Orçamento
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>🤖 Implementação de IA</h3>
+                    <div class="service-price">R$ 5.000</div>
+                    <p>Integração de ferramentas de IA em segurança</p>
+                    <ul class="service-features">
+                        <li>Análise de necessidades</li>
+                        <li>Configuração personalizada</li>
+                        <li>Treinamento da equipe</li>
+                        <li>Monitoramento 90 dias</li>
+                        <li>Suporte técnico</li>
+                    </ul>
+                    <button class="contact-btn" onclick="openWhatsApp('implementacao')">
+                        Solicitar Orçamento
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <h3>📚 Treinamento Corporativo</h3>
+                    <div class="service-price">R$ 1.500</div>
+                    <p>Capacitação da sua equipe</p>
+                    <ul class="service-features">
+                        <li>Workshop presencial/online</li>
+                        <li>Material didático</li>
+                        <li>Certificados</li>
+                        <li>Laboratório prático</li>
+                        <li>Suporte pós-treinamento</li>
+                    </ul>
+                    <button class="contact-btn" onclick="openWhatsApp('treinamento')">
+                        Solicitar Orçamento
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function openWhatsApp(service) {
+            const message = `Olá! Tenho interesse no serviço de ${service}. Gostaria de mais informações.`;
+            const phone = '5511999999999';
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

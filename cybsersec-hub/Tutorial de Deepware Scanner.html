@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - Deepware Scanner</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Tutorial Completo - Deepware Scanner</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> Deepware Scanner é uma ferramenta de detecção de deepfakes que analisa vídeos para identificar se foram manipulados por IA, essencial para verificação de autenticidade de conteúdo.
+        </div>
+
+        <h2>🌐 Passo 1: Acessando a Plataforma</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Acesse o site:</strong></p>
+            <p>Visite <code>https://scanner.deepware.ai</code></p>
+            <p>Plataforma funciona diretamente no navegador, sem instalação.</p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Crie uma conta (opcional):</strong></p>
+            <ul>
+                <li>Cadastro gratuito permite análises ilimitadas</li>
+                <li>Histórico de análises salvo na conta</li>
+                <li>Acesso a relatórios detalhados</li>
+            </ul>
+        </div>
+
+        <h2>📤 Passo 2: Enviando Vídeo para Análise</h2>
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Faça upload do vídeo:</strong></p>
+            <ul>
+                <li>Clique em "Upload Video" ou arraste o arquivo</li>
+                <li>Formatos aceitos: MP4, AVI, MOV, MKV</li>
+                <li>Tamanho máximo: 100MB (plano gratuito)</li>
+                <li>Duração: até 5 minutos</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Aguarde o processamento:</strong></p>
+            <ul>
+                <li>Análise leva 1-5 minutos dependendo do vídeo</li>
+                <li>Sistema analisa frames individuais</li>
+                <li>Detecta padrões de manipulação por IA</li>
+            </ul>
+        </div>
+
+        <h2>📊 Passo 3: Interpretando Resultados</h2>
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Analise o relatório:</strong></p>
+            <ul>
+                <li><strong>Confidence Score:</strong> 0-100% (quanto maior, mais provável ser deepfake)</li>
+                <li><strong>Real:</strong> 0-30% - Vídeo provavelmente autêntico</li>
+                <li><strong>Suspeito:</strong> 30-70% - Análise inconclusiva</li>
+                <li><strong>Fake:</strong> 70-100% - Alta probabilidade de deepfake</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Verifique detalhes:</strong></p>
+            <ul>
+                <li>Frames específicos com anomalias</li>
+                <li>Áreas do rosto com inconsistências</li>
+                <li>Padrões de manipulação detectados</li>
+                <li>Timeline com pontuação por segundo</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Passo 4: Análise Avançada</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Recursos adicionais:</strong></p>
+            <ul>
+                <li><strong>Frame-by-frame:</strong> Analise quadro a quadro</li>
+                <li><strong>Heatmap:</strong> Visualize áreas manipuladas</li>
+                <li><strong>Export Report:</strong> Baixe relatório em PDF</li>
+                <li><strong>Compare:</strong> Compare múltiplos vídeos</li>
+            </ul>
+        </div>
+
+        <h2>💡 Dicas para Melhor Detecção</h2>
+        <div class="success">
+            <ul>
+                <li>Use vídeos em boa qualidade (720p+)</li>
+                <li>Vídeos mais longos fornecem mais dados para análise</li>
+                <li>Foque em vídeos com rostos claramente visíveis</li>
+                <li>Combine com análise manual de inconsistências</li>
+                <li>Verifique múltiplas fontes do mesmo conteúdo</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Casos de Uso</h2>
+        <ul>
+            <li><strong>Jornalismo:</strong> Verificar autenticidade de vídeos noticiosos</li>
+            <li><strong>Forense digital:</strong> Análise de evidências em investigações</li>
+            <li><strong>Redes sociais:</strong> Identificar conteúdo manipulado</li>
+            <li><strong>Segurança corporativa:</strong> Detectar fraudes em vídeos</li>
+            <li><strong>Educação:</strong> Ensinar sobre deepfakes e desinformação</li>
+        </ul>
+
+        <h2>⚠️ Limitações da Ferramenta</h2>
+        <div class="warning">
+            <ul>
+                <li>Não é 100% precisa - deepfakes avançados podem passar</li>
+                <li>Vídeos de baixa qualidade podem gerar falsos positivos</li>
+                <li>Tecnologia de deepfake evolui constantemente</li>
+                <li>Deve ser usada como parte de análise mais ampla</li>
+                <li>Não substitui verificação humana especializada</li>
+            </ul>
+        </div>
+
+        <h2>🔍 Sinais Manuais de Deepfake</h2>
+        <div class="info">
+            <p>Além do scanner, observe:</p>
+            <ul>
+                <li>Piscar de olhos irregular ou ausente</li>
+                <li>Bordas do rosto borradas ou inconsistentes</li>
+                <li>Iluminação não natural no rosto</li>
+                <li>Sincronização labial imperfeita</li>
+                <li>Artefatos visuais ao redor do rosto</li>
+                <li>Movimentos faciais não naturais</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>

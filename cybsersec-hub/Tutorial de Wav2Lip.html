@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - Wav2Lip</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎤 Tutorial Completo - Wav2Lip</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> Wav2Lip sincroniza labial automaticamente em vídeos, fazendo os lábios se moverem perfeitamente de acordo com qualquer áudio. Ideal para dublagens, traduções e criação de conteúdo multilíngue.
+        </div>
+
+        <h2>💻 Passo 1: Requisitos e Instalação</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Requisitos do sistema:</strong></p>
+            <ul>
+                <li><strong>Python:</strong> 3.6 ou superior</li>
+                <li><strong>GPU:</strong> NVIDIA com 4GB+ VRAM (recomendado)</li>
+                <li><strong>RAM:</strong> 8GB mínimo</li>
+                <li><strong>SO:</strong> Windows, Linux ou macOS</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Clone o repositório:</strong></p>
+            <code>git clone https://github.com/Rudrabha/Wav2Lip</code>
+            <p>Navegue até a pasta: <code>cd Wav2Lip</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Instale dependências:</strong></p>
+            <code>pip install -r requirements.txt</code>
+            <p>Instale ffmpeg: <code>pip install ffmpeg-python</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Baixe os modelos:</strong></p>
+            <ul>
+                <li>Baixe <code>wav2lip.pth</code> do link no README</li>
+                <li>Baixe <code>wav2lip_gan.pth</code> para melhor qualidade</li>
+                <li>Coloque na pasta <code>checkpoints/</code></li>
+            </ul>
+        </div>
+
+        <h2>🎬 Passo 2: Preparando os Arquivos</h2>
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Prepare o vídeo:</strong></p>
+            <ul>
+                <li>Vídeo com rosto visível (frontal ou semi-frontal)</li>
+                <li>Formato: MP4, AVI, MOV</li>
+                <li>Qualidade: 720p ou superior recomendado</li>
+                <li>Coloque na pasta do projeto</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Prepare o áudio:</strong></p>
+            <ul>
+                <li>Arquivo de áudio com a fala desejada</li>
+                <li>Formato: WAV, MP3, M4A</li>
+                <li>Áudio limpo sem ruídos para melhor resultado</li>
+                <li>Duração deve corresponder ao vídeo</li>
+            </ul>
+        </div>
+
+        <h2>🚀 Passo 3: Gerando o Vídeo Sincronizado</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Execute o comando básico:</strong></p>
+            <code>python inference.py --checkpoint_path checkpoints/wav2lip_gan.pth --face video.mp4 --audio audio.wav</code>
+            <p>Substitua <code>video.mp4</code> e <code>audio.wav</code> pelos seus arquivos.</p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">8</span><strong>Aguarde o processamento:</strong></p>
+            <ul>
+                <li>Processo leva 1-5 minutos por minuto de vídeo</li>
+                <li>Vídeo final será salvo em <code>results/</code></li>
+                <li>Verifique a sincronização labial</li>
+            </ul>
+        </div>
+
+        <h2>⚙️ Passo 4: Configurações Avançadas</h2>
+        <div class="step">
+            <p><span class="step-number">9</span><strong>Parâmetros opcionais:</strong></p>
+            <ul>
+                <li><strong>--resize_factor:</strong> Redimensiona vídeo (1-4, padrão 1)</li>
+                <li><strong>--rotate:</strong> Rotaciona vídeo se necessário</li>
+                <li><strong>--crop:</strong> Recorta área específica</li>
+                <li><strong>--box:</strong> Define região do rosto manualmente</li>
+                <li><strong>--nosmooth:</strong> Desativa suavização (mais rápido)</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">10</span><strong>Exemplo com parâmetros:</strong></p>
+            <code>python inference.py --checkpoint_path checkpoints/wav2lip_gan.pth --face video.mp4 --audio audio.wav --resize_factor 2 --fps 25</code>
+        </div>
+
+        <h2>🌐 Alternativas Online</h2>
+        <div class="step">
+            <p><span class="step-number">11</span><strong>Plataformas sem instalação:</strong></p>
+            <ul>
+                <li><strong>Google Colab:</strong> Notebooks Wav2Lip prontos</li>
+                <li><strong>Replicate.com:</strong> API online do Wav2Lip</li>
+                <li><strong>Hugging Face Spaces:</strong> Demos interativos</li>
+            </ul>
+        </div>
+
+        <h2>💡 Dicas para Melhores Resultados</h2>
+        <div class="success">
+            <ul>
+                <li>Use vídeos com rostos bem iluminados e frontais</li>
+                <li>Áudio limpo produz melhor sincronização</li>
+                <li>Use wav2lip_gan.pth para qualidade superior</li>
+                <li>Evite vídeos com movimentos bruscos de cabeça</li>
+                <li>Resolução 720p-1080p oferece melhor equilíbrio</li>
+                <li>Pré-processe áudio para remover ruídos</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Solução de Problemas</h2>
+        
+        <h3>❌ Erro: Face not detected</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Use vídeo com rosto mais visível</li>
+            <li>Ajuste --resize_factor para 2 ou 4</li>
+            <li>Defina --box manualmente com coordenadas</li>
+        </ul>
+
+        <h3>❌ Sincronização ruim</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Use modelo wav2lip_gan.pth ao invés de wav2lip.pth</li>
+                <li>Verifique se áudio e vídeo têm mesma duração</li>
+            <li>Melhore qualidade do áudio de entrada</li>
+        </ul>
+
+        <h3>❌ Resultado com artefatos visuais</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Reduza resize_factor</li>
+            <li>Use vídeo de melhor qualidade</li>
+            <li>Ative suavização (remova --nosmooth)</li>
+        </ul>
+
+        <h2>🎯 Casos de Uso</h2>
+        <ul>
+            <li><strong>Dublagem de vídeos:</strong> Traduza conteúdo para outros idiomas</li>
+            <li><strong>Correção de áudio:</strong> Substitua áudio com problemas</li>
+            <li><strong>Conteúdo educacional:</strong> Crie videoaulas multilíngues</li>
+            <li><strong>Marketing:</strong> Personalize vídeos para diferentes públicos</li>
+            <li><strong>Entretenimento:</strong> Crie paródias e memes</li>
+            <li><strong>Acessibilidade:</strong> Adicione narração a vídeos mudos</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ USO ÉTICO E LEGAL:</strong>
+            <ul>
+                <li>NÃO crie deepfakes enganosos ou fraudulentos</li>
+                <li>NÃO use para difamação ou desinformação</li>
+                <li>Sempre divulgue que o vídeo foi modificado com IA</li>
+                <li>Obtenha consentimento ao usar imagens de terceiros</li>
+                <li>Respeite leis de direitos autorais e privacidade</li>
+                <li>Use apenas para fins legítimos e éticos</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>

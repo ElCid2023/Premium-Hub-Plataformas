@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - DFDNet</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✨ Tutorial Completo - DFDNet</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> DFDNet (Deep Face Dictionary Network) é uma ferramenta de restauração facial que melhora a qualidade de rostos em fotos de baixa resolução, borradas ou danificadas usando IA.
+        </div>
+
+        <h2>💻 Passo 1: Requisitos e Instalação</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Requisitos do sistema:</strong></p>
+            <ul>
+                <li><strong>Python:</strong> 3.7 ou superior</li>
+                <li><strong>GPU:</strong> NVIDIA com 4GB+ VRAM (recomendado)</li>
+                <li><strong>RAM:</strong> 8GB mínimo</li>
+                <li><strong>SO:</strong> Windows 10/11 ou Linux</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Clone o repositório:</strong></p>
+            <code>git clone https://github.com/csxmli2016/DFDNet</code>
+            <p>Navegue até a pasta: <code>cd DFDNet</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Instale dependências:</strong></p>
+            <code>pip install torch torchvision opencv-python dlib scipy</code>
+            <p>Baixe o modelo pré-treinado do link fornecido no README</p>
+        </div>
+
+        <h2>🖼️ Passo 2: Preparando as Imagens</h2>
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Organize suas fotos:</strong></p>
+            <ul>
+                <li>Coloque imagens na pasta <code>TestData/TestWhole</code></li>
+                <li>Formatos aceitos: JPG, PNG, BMP</li>
+                <li>Funciona melhor com fotos de rostos frontais</li>
+            </ul>
+        </div>
+
+        <h2>🚀 Passo 3: Executando a Restauração</h2>
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Execute o script:</strong></p>
+            <code>python test_FaceDict.py --test_path TestData/TestWhole --results_dir Results</code>
+            <p>Aguarde o processamento de cada imagem.</p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Verifique os resultados:</strong></p>
+            <ul>
+                <li>Imagens restauradas estarão em <code>Results/</code></li>
+                <li>Compare com originais para avaliar melhoria</li>
+                <li>Processo leva 5-30 segundos por imagem</li>
+            </ul>
+        </div>
+
+        <h2>⚙️ Passo 4: Configurações Avançadas</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Ajuste parâmetros:</strong></p>
+            <ul>
+                <li><strong>--upscale_factor:</strong> Fator de ampliação (2 ou 4)</li>
+                <li><strong>--dict_path:</strong> Caminho para dicionário facial customizado</li>
+                <li><strong>--gpu_ids:</strong> IDs das GPUs a usar</li>
+            </ul>
+        </div>
+
+        <h2>💡 Dicas para Melhores Resultados</h2>
+        <div class="success">
+            <ul>
+                <li>Funciona melhor em fotos com rostos claramente visíveis</li>
+                <li>Imagens muito danificadas podem ter resultados limitados</li>
+                <li>Use upscale_factor 2 para fotos moderadamente ruins</li>
+                <li>Use upscale_factor 4 para fotos muito degradadas</li>
+                <li>Pré-processe com redução de ruído se necessário</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Solução de Problemas</h2>
+        
+        <h3>❌ Erro: Face not detected</h3>
+        <p><strong>Solução:</strong> Certifique-se que o rosto está visível e frontal na imagem</p>
+
+        <h3>❌ Resultado artificial demais</h3>
+        <p><strong>Solução:</strong> Reduza o upscale_factor ou ajuste parâmetros de suavização</p>
+
+        <h3>❌ Processamento muito lento</h3>
+        <p><strong>Solução:</strong> Use GPU ao invés de CPU, ou processe imagens menores</p>
+
+        <h2>🎯 Casos de Uso</h2>
+        <ul>
+            <li><strong>Restauração de fotos antigas:</strong> Melhore fotos de família degradadas</li>
+            <li><strong>Forense digital:</strong> Melhore qualidade de imagens de vigilância</li>
+            <li><strong>Produção de vídeo:</strong> Aprimore frames com rostos borrados</li>
+            <li><strong>Arquivos históricos:</strong> Restaure documentos fotográficos</li>
+            <li><strong>Redes sociais:</strong> Melhore selfies de baixa qualidade</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ USO ÉTICO:</strong>
+            <ul>
+                <li>Não use para criar evidências falsas</li>
+                <li>Respeite privacidade ao restaurar fotos de terceiros</li>
+                <li>Informe quando imagens foram processadas com IA</li>
+                <li>Não use para fins fraudulentos ou enganosos</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>

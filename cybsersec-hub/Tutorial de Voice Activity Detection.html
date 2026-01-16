@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - Voice Activity Detection (VAD)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎙️ Tutorial Completo - Voice Activity Detection (VAD)</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> Voice Activity Detection (VAD) detecta automaticamente quando há fala em áudio, separando voz de silêncio e ruídos. Essencial para transcrição, compressão de áudio e sistemas de reconhecimento de voz.
+        </div>
+
+        <h2>💻 Passo 1: Instalação</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Instale a biblioteca WebRTC VAD:</strong></p>
+            <code>pip install webrtcvad</code>
+            <p>Biblioteca leve e eficiente desenvolvida pelo Google.</p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Instale dependências de áudio:</strong></p>
+            <code>pip install pydub numpy scipy</code>
+            <p>Para manipulação e processamento de arquivos de áudio.</p>
+        </div>
+
+        <h2>🎵 Passo 2: Processando Áudio Básico</h2>
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Código básico de detecção:</strong></p>
+            <code>
+import webrtcvad<br>
+import wave<br><br>
+vad = webrtcvad.Vad(3)  # Agressividade 0-3<br>
+audio = wave.open('audio.wav', 'rb')<br>
+frames = audio.readframes(audio.getnframes())<br>
+is_speech = vad.is_speech(frames, sample_rate=16000)
+            </code>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Níveis de agressividade:</strong></p>
+            <ul>
+                <li><strong>0:</strong> Menos agressivo - detecta mais fala (pode incluir ruídos)</li>
+                <li><strong>1:</strong> Moderado baixo</li>
+                <li><strong>2:</strong> Moderado alto</li>
+                <li><strong>3:</strong> Mais agressivo - apenas fala clara (pode perder sussurros)</li>
+            </ul>
+        </div>
+
+        <h2>⚙️ Passo 3: Segmentação de Áudio</h2>
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Divida áudio em segmentos:</strong></p>
+            <code>
+def segment_audio(audio_path):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;vad = webrtcvad.Vad(2)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;audio = wave.open(audio_path)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;frames = frame_generator(30, audio)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;segments = vad_collector(vad, frames)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return segments
+            </code>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Exporte apenas segmentos com fala:</strong></p>
+            <p>Remove silêncios e ruídos, mantendo apenas partes com voz ativa.</p>
+        </div>
+
+        <h2>🔧 Passo 4: Configurações Avançadas</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Ajuste parâmetros:</strong></p>
+            <ul>
+                <li><strong>Frame duration:</strong> 10ms, 20ms ou 30ms</li>
+                <li><strong>Sample rate:</strong> 8000, 16000, 32000 ou 48000 Hz</li>
+                <li><strong>Padding:</strong> Adicione margem antes/depois da fala</li>
+            </ul>
+        </div>
+
+        <h2>🌐 Alternativas e Ferramentas</h2>
+        <div class="step">
+            <p><span class="step-number">8</span><strong>Outras bibliotecas VAD:</strong></p>
+            <ul>
+                <li><strong>py-webrtcvad:</strong> Wrapper Python do WebRTC</li>
+                <li><strong>SileroVAD:</strong> Modelo neural mais preciso</li>
+                <li><strong>Auditok:</strong> Detecção baseada em energia</li>
+                <li><strong>Inaspeech:</strong> Para análise de diarização</li>
+            </ul>
+        </div>
+
+        <h2>💡 Dicas para Melhores Resultados</h2>
+        <div class="success">
+            <ul>
+                <li>Use áudio em 16kHz para melhor compatibilidade</li>
+                <li>Pré-processe áudio para remover ruídos de fundo</li>
+                <li>Ajuste agressividade conforme ambiente (silencioso vs. ruidoso)</li>
+                <li>Adicione padding para não cortar início/fim de palavras</li>
+                <li>Teste diferentes frame durations para seu caso de uso</li>
+            </ul>
+        </div>
+
+        <h2>🎯 Casos de Uso</h2>
+        <ul>
+            <li><strong>Transcrição automática:</strong> Envie apenas segmentos com fala para STT</li>
+            <li><strong>Compressão de áudio:</strong> Remova silêncios de gravações</li>
+            <li><strong>Assistentes virtuais:</strong> Detecte quando usuário está falando</li>
+            <li><strong>Teleconferências:</strong> Ative microfone apenas durante fala</li>
+            <li><strong>Análise forense:</strong> Identifique momentos de conversação</li>
+            <li><strong>Podcasts:</strong> Edição automática removendo pausas longas</li>
+        </ul>
+
+        <h2>🔧 Solução de Problemas</h2>
+        
+        <h3>❌ Muitos falsos positivos (detecta ruído como fala)</h3>
+        <p><strong>Solução:</strong> Aumente agressividade para 2 ou 3</p>
+
+        <h3>❌ Não detecta fala sussurrada</h3>
+        <p><strong>Solução:</strong> Reduza agressividade para 0 ou 1</p>
+
+        <h3>❌ Corta início/fim de palavras</h3>
+        <p><strong>Solução:</strong> Adicione padding de 200-500ms antes e depois</p>
+
+        <h2>📊 Exemplo Prático Completo</h2>
+        <div class="step">
+            <p><span class="step-number">9</span><strong>Script completo de processamento:</strong></p>
+            <code>
+import webrtcvad<br>
+from pydub import AudioSegment<br><br>
+# Carrega áudio<br>
+audio = AudioSegment.from_file("input.mp3")<br>
+audio = audio.set_frame_rate(16000).set_channels(1)<br><br>
+# Detecta fala<br>
+vad = webrtcvad.Vad(2)<br>
+segments = detect_speech(audio, vad)<br><br>
+# Exporta apenas fala<br>
+speech_only = concatenate_segments(segments)<br>
+speech_only.export("output.wav", format="wav")
+            </code>
+        </div>
+
+        <div class="info">
+            <strong>💡 Dica Profissional:</strong> Combine VAD com noise reduction para resultados ainda melhores. Use bibliotecas como noisereduce antes de aplicar VAD.
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>

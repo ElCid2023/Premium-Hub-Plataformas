@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - FSGAN</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎬 Tutorial Completo - FSGAN</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> FSGAN (Face Swapping GAN) é uma tecnologia avançada de troca de rostos e reenactment facial que permite transferir expressões faciais entre pessoas em vídeos com alta qualidade e realismo.
+        </div>
+
+        <h2>💻 Passo 1: Requisitos e Instalação</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Requisitos do sistema:</strong></p>
+            <ul>
+                <li><strong>Python:</strong> 3.6 ou 3.7</li>
+                <li><strong>GPU:</strong> NVIDIA com 8GB+ VRAM (obrigatório)</li>
+                <li><strong>CUDA:</strong> 10.0 ou superior</li>
+                <li><strong>RAM:</strong> 16GB mínimo (32GB recomendado)</li>
+                <li><strong>SO:</strong> Linux (Ubuntu 18.04+) ou Windows 10/11</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Clone o repositório:</strong></p>
+            <code>git clone https://github.com/YuvalNirkin/fsgan</code>
+            <p>Navegue até a pasta: <code>cd fsgan</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Instale dependências:</strong></p>
+            <code>pip install -r requirements.txt</code>
+            <p>Instale também: <code>pip install face_alignment dlib</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Baixe modelos pré-treinados:</strong></p>
+            <ul>
+                <li>Acesse a seção "Pretrained Models" no GitHub</li>
+                <li>Baixe os arquivos .pth necessários</li>
+                <li>Coloque na pasta <code>weights/</code></li>
+            </ul>
+        </div>
+
+        <h2>🎭 Passo 2: Face Swapping (Troca de Rostos)</h2>
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Prepare os vídeos:</strong></p>
+            <ul>
+                <li><strong>Source:</strong> Vídeo da pessoa cujo rosto será usado</li>
+                <li><strong>Target:</strong> Vídeo onde o rosto será aplicado</li>
+                <li>Ambos com rostos frontais e boa iluminação</li>
+                <li>Resolução mínima: 720p</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Execute face swapping:</strong></p>
+            <code>python swap.py -s source.mp4 -t target.mp4 -o output.mp4</code>
+            <p>Processamento pode levar várias horas dependendo da duração.</p>
+        </div>
+
+        <h2>🎪 Passo 3: Face Reenactment (Transferência de Expressões)</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Reenactment básico:</strong></p>
+            <code>python reenact.py -s source.jpg -t target.mp4 -o output.mp4</code>
+            <p>Transfere expressões do vídeo target para a foto source.</p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">8</span><strong>Parâmetros avançados:</strong></p>
+            <ul>
+                <li><strong>--crop_scale:</strong> Ajusta área de recorte do rosto</li>
+                <li><strong>--finetune:</strong> Ativa fine-tuning para melhor qualidade</li>
+                <li><strong>--seg_remove_mouth:</strong> Remove boca da segmentação</li>
+                <li><strong>--encoder_codec:</strong> Define codec de vídeo</li>
+            </ul>
+        </div>
+
+        <h2>⚙️ Passo 4: Configurações de Qualidade</h2>
+        <div class="step">
+            <p><span class="step-number">9</span><strong>Melhore a qualidade:</strong></p>
+            <ul>
+                <li>Use <code>--finetune</code> para adaptar modelo ao rosto específico</li>
+                <li>Aumente <code>--iterations</code> para mais refinamento</li>
+                <li>Use <code>--blend</code> para suavizar transições</li>
+                <li>Ajuste <code>--pil_transforms</code> para correção de cor</li>
+            </ul>
+        </div>
+
+        <h2>💡 Dicas para Melhores Resultados</h2>
+        <div class="success">
+            <ul>
+                <li>Use vídeos com iluminação consistente</li>
+                <li>Evite óculos, barba ou acessórios que cubram o rosto</li>
+                <li>Rostos em ângulos similares produzem melhores resultados</li>
+                <li>Vídeos curtos (30-60s) são ideais para testes</li>
+                <li>Use finetune para vídeos importantes</li>
+                <li>Pré-processe vídeos para estabilizar movimento</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Solução de Problemas</h2>
+        
+        <h3>❌ Erro: CUDA out of memory</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Reduza resolução do vídeo</li>
+            <li>Diminua batch size</li>
+            <li>Processe vídeo em segmentos menores</li>
+        </ul>
+
+        <h3>❌ Resultado com artefatos ou distorções</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Ative finetune para adaptar melhor ao rosto</li>
+            <li>Ajuste crop_scale para incluir mais contexto</li>
+            <li>Use vídeos com melhor qualidade e iluminação</li>
+            <li>Aumente número de iterations</li>
+        </ul>
+
+        <h3>❌ Face not detected</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Certifique-se que rosto está visível e frontal</li>
+            <li>Melhore iluminação do vídeo</li>
+            <li>Use vídeo com resolução maior</li>
+        </ul>
+
+        <h2>🎯 Casos de Uso</h2>
+        <ul>
+            <li><strong>Cinema e TV:</strong> Efeitos especiais e dublês digitais</li>
+            <li><strong>Jogos:</strong> Animação facial realista de personagens</li>
+            <li><strong>Realidade virtual:</strong> Avatares com expressões naturais</li>
+            <li><strong>Educação:</strong> Demonstrações de tecnologia deepfake</li>
+            <li><strong>Pesquisa:</strong> Estudos sobre síntese facial e IA</li>
+        </ul>
+
+        <h2>📊 Comparação com Outras Ferramentas</h2>
+        <div class="info">
+            <ul>
+                <li><strong>FSGAN vs DeepFaceLab:</strong> FSGAN não requer treinamento extenso</li>
+                <li><strong>FSGAN vs First Order:</strong> FSGAN oferece melhor qualidade em vídeos</li>
+                <li><strong>FSGAN vs FaceSwap:</strong> FSGAN tem melhor preservação de expressões</li>
+            </ul>
+        </div>
+
+        <h2>🔬 Recursos Avançados</h2>
+        <div class="step">
+            <p><span class="step-number">10</span><strong>Funcionalidades extras:</strong></p>
+            <ul>
+                <li><strong>Interpolation:</strong> Suaviza transições entre frames</li>
+                <li><strong>Segmentation:</strong> Controle preciso de áreas faciais</li>
+                <li><strong>Inpainting:</strong> Preenche áreas ocluídas</li>
+                <li><strong>Super-resolution:</strong> Melhora resolução do resultado</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ USO ÉTICO E LEGAL:</strong>
+            <ul>
+                <li>NÃO crie deepfakes para fraude, difamação ou desinformação</li>
+                <li>NÃO use sem consentimento das pessoas envolvidas</li>
+                <li>SEMPRE divulgue que o conteúdo é sintético/manipulado</li>
+                <li>Respeite leis de privacidade e direitos de imagem</li>
+                <li>Use apenas para fins legítimos: pesquisa, arte, educação</li>
+                <li>Esteja ciente das implicações éticas e legais</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>

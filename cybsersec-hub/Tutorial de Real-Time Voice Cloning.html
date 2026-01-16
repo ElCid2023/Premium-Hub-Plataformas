@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Real-Time Voice Cloning</title>
+    <style>
+        @media print {
+            body { margin: 0; padding: 20px; }
+            .no-print { display: none; }
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 4px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            padding: 10px;
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+        }
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .btn-print {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .btn-print:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">🖨️ Salvar como PDF</button>
+        
+        <h1>🎤 Tutorial Completo: Real-Time Voice Cloning</h1>
+        
+        <div class="warning">
+            <strong>⚠️ AVISO ÉTICO:</strong> Esta ferramenta deve ser usada apenas para fins educacionais e de pesquisa em cybersegurança. O uso malicioso é ilegal e antiético.
+        </div>
+
+        <h2>📋 Sobre a Ferramenta</h2>
+        <p>O Real-Time Voice Cloning é uma ferramenta de código aberto que permite clonar qualquer voz usando apenas 5 segundos de áudio. Desenvolvida para pesquisa em síntese de voz, utiliza redes neurais profundas para aprender e replicar características vocais.</p>
+
+        <div class="info">
+            <strong>🎯 Aplicações Éticas:</strong>
+            <ul>
+                <li>Teste de vulnerabilidades em sistemas de autenticação por voz</li>
+                <li>Pesquisa em detecção de áudio sintético</li>
+                <li>Desenvolvimento de contramedidas de segurança</li>
+                <li>Educação em cybersegurança</li>
+            </ul>
+        </div>
+
+        <h2>💻 Requisitos do Sistema</h2>
+        <ul>
+            <li><strong>Sistema Operacional:</strong> Windows 10/11, Linux ou macOS</li>
+            <li><strong>Python:</strong> Versão 3.7 ou superior</li>
+            <li><strong>GPU:</strong> NVIDIA com CUDA (recomendado) ou CPU</li>
+            <li><strong>RAM:</strong> Mínimo 8GB, recomendado 16GB</li>
+            <li><strong>Espaço em Disco:</strong> 5GB livres</li>
+            <li><strong>Conexão:</strong> Internet para download inicial</li>
+        </ul>
+
+        <h2>🔧 Instalação Passo a Passo</h2>
+
+        <div class="step">
+            <h3>Passo 1: Instalar Python</h3>
+            <p>Baixe e instale Python 3.7+ de <code>python.org</code></p>
+            <p>Verifique a instalação:</p>
+            <div class="code-block">python --version<br>pip --version</div>
+        </div>
+
+        <div class="step">
+            <h3>Passo 2: Instalar PyTorch</h3>
+            <p>Instale o PyTorch com suporte CUDA (GPU) ou CPU:</p>
+            <div class="code-block">pip install torch torchvision torchaudio</div>
+            <p>Para CPU apenas:</p>
+            <div class="code-block">pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu</div>
+        </div>
+
+        <div class="step">
+            <h3>Passo 3: Clonar o Repositório</h3>
+            <p>Clone o projeto do GitHub:</p>
+            <div class="code-block">git clone https://github.com/CorentinJ/Real-Time-Voice-Cloning.git<br>cd Real-Time-Voice-Cloning</div>
+        </div>
+
+        <div class="step">
+            <h3>Passo 4: Instalar Dependências</h3>
+            <p>Instale todas as bibliotecas necessárias:</p>
+            <div class="code-block">pip install -r requirements.txt</div>
+            <p>Isso instalará: numpy, scipy, librosa, matplotlib, PyQt5, sounddevice, Unidecode, inflect, multiprocess</p>
+        </div>
+
+        <div class="step">
+            <h3>Passo 5: Baixar Modelos Pré-Treinados</h3>
+            <p>Baixe os modelos pré-treinados (aproximadamente 1.5GB):</p>
+            <ol>
+                <li>Acesse a página de releases no GitHub</li>
+                <li>Baixe <code>pretrained.zip</code></li>
+                <li>Extraia para a pasta <code>saved_models/</code></li>
+                <li>Verifique se existem 3 pastas: encoder, synthesizer, vocoder</li>
+            </ol>
+        </div>
+
+        <h2>🚀 Usando a Ferramenta</h2>
+
+        <div class="step">
+            <h3>Passo 6: Preparar Áudio de Referência</h3>
+            <p><strong>Requisitos do áudio:</strong></p>
+            <ul>
+                <li>Formato: WAV (preferencial) ou MP3</li>
+                <li>Taxa de amostragem: 16kHz ou 22kHz</li>
+                <li>Canais: Mono (1 canal)</li>
+                <li>Duração: 5 a 10 segundos</li>
+                <li>Qualidade: Sem ruído de fundo, fala clara</li>
+                <li>Conteúdo: Fala natural, não música</li>
+            </ul>
+            <p><strong>Dica:</strong> Use Audacity para converter e limpar o áudio se necessário.</p>
+        </div>
+
+        <div class="step">
+            <h3>Passo 7: Iniciar a Interface Gráfica</h3>
+            <p>Execute o toolbox:</p>
+            <div class="code-block">python demo_toolbox.py</div>
+            <p>A interface gráfica abrirá automaticamente. Aguarde 1-2 minutos no primeiro uso enquanto os modelos são carregados na memória.</p>
+        </div>
+
+        <div class="step">
+            <h3>Passo 8: Carregar Áudio de Referência</h3>
+            <ol>
+                <li>Na interface, clique no botão <strong>"Browse"</strong></li>
+                <li>Selecione seu arquivo de áudio WAV</li>
+                <li>Clique em <strong>"Load"</strong></li>
+                <li>Aguarde o processamento (5-15 segundos)</li>
+                <li>Você verá o embedding da voz visualizado em um gráfico</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Passo 9: Gerar Voz Clonada</h3>
+            <ol>
+                <li>No campo de texto, digite a frase que deseja sintetizar (até 200 caracteres)</li>
+                <li>Clique em <strong>"Synthesize and vocode"</strong></li>
+                <li>Aguarde 5-10 segundos para processamento</li>
+                <li>O áudio será reproduzido automaticamente</li>
+                <li>Você verá o espectrograma gerado</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <h3>Passo 10: Ajustar Parâmetros</h3>
+            <p><strong>Parâmetros disponíveis:</strong></p>
+            <ul>
+                <li><strong>Vocoder:</strong> Escolha entre Griffin-Lim ou WaveRNN (mais lento, melhor qualidade)</li>
+                <li><strong>Seed:</strong> Altere para variações na geração</li>
+                <li><strong>Trim:</strong> Remove silêncios no início/fim</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Passo 11: Salvar Áudio Gerado</h3>
+            <ol>
+                <li>Clique no botão <strong>"Save"</strong></li>
+                <li>Escolha o local e nome do arquivo</li>
+                <li>Formato salvo: WAV, 22kHz</li>
+                <li>Arquivo estará em <code>output/</code></li>
+            </ol>
+        </div>
+
+        <h2>🔍 Análise de Qualidade</h2>
+        
+        <div class="step">
+            <h3>Como Avaliar o Resultado</h3>
+            <p><strong>Aspectos a verificar:</strong></p>
+            <ul>
+                <li><strong>Naturalidade:</strong> A voz soa natural ou robótica?</li>
+                <li><strong>Similaridade:</strong> Parece com a voz original?</li>
+                <li><strong>Artefatos:</strong> Há ruídos ou distorções?</li>
+                <li><strong>Prosódia:</strong> Entonação e ritmo estão corretos?</li>
+                <li><strong>Clareza:</strong> As palavras são compreensíveis?</li>
+            </ul>
+        </div>
+
+        <h2>⚠️ Limitações Conhecidas</h2>
+        <ul>
+            <li>Qualidade depende muito do áudio de referência</li>
+            <li>Vozes com sotaque forte podem ter resultados variados</li>
+            <li>Textos muito longos podem perder qualidade</li>
+            <li>Emoções intensas são difíceis de replicar</li>
+            <li>Ruído de fundo no áudio original afeta o resultado</li>
+        </ul>
+
+        <h2>🛠️ Solução de Problemas</h2>
+
+        <div class="step">
+            <h3>Erro: "CUDA out of memory"</h3>
+            <p><strong>Solução:</strong> Use CPU ao invés de GPU ou reduza o batch size</p>
+        </div>
+
+        <div class="step">
+            <h3>Áudio com muitos artefatos</h3>
+            <p><strong>Soluções:</strong></p>
+            <ul>
+                <li>Use áudio de referência de melhor qualidade</li>
+                <li>Aumente a duração do áudio de referência (até 10s)</li>
+                <li>Remova ruído de fundo com Audacity</li>
+                <li>Tente diferentes seeds</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Interface não abre</h3>
+            <p><strong>Solução:</strong> Verifique se PyQt5 está instalado corretamente:</p>
+            <div class="code-block">pip install --upgrade PyQt5</div>
+        </div>
+
+        <h2>🔐 Uso Ético e Legal</h2>
+        
+        <div class="warning">
+            <h3>Diretrizes Éticas</h3>
+            <ul>
+                <li>✅ Use apenas vozes com consentimento explícito</li>
+                <li>✅ Mantenha em ambiente de teste controlado</li>
+                <li>✅ Documente vulnerabilidades encontradas</li>
+                <li>✅ Compartilhe conhecimento com comunidade de segurança</li>
+                <li>❌ Nunca use para fraude ou personificação</li>
+                <li>❌ Não distribua áudios gerados sem autorização</li>
+                <li>❌ Não use para enganar sistemas de autenticação reais</li>
+            </ul>
+        </div>
+
+        <h2>📚 Recursos Adicionais</h2>
+        <ul>
+            <li><strong>Repositório GitHub:</strong> github.com/CorentinJ/Real-Time-Voice-Cloning</li>
+            <li><strong>Paper Original:</strong> "Transfer Learning from Speaker Verification to Multispeaker Text-To-Speech Synthesis"</li>
+            <li><strong>Comunidade:</strong> Issues no GitHub para suporte</li>
+        </ul>
+
+        <h2>✅ Checklist de Uso Ético</h2>
+        <ol>
+            <li>☐ Obtive consentimento para usar a voz?</li>
+            <li>☐ Estou em ambiente de teste isolado?</li>
+            <li>☐ Documentei os resultados para pesquisa?</li>
+            <li>☐ Vou usar apenas para fins educacionais?</li>
+            <li>☐ Não vou distribuir áudios gerados?</li>
+        </ol>
+
+        <div class="info">
+            <strong>📧 Suporte:</strong> Para dúvidas sobre uso ético, entre em contato: jbcursosepalestras@gmail.com
+        </div>
+
+        <p style="text-align: center; margin-top: 40px; color: #7f8c8d;">
+            <small>© 2024 CyberSec AI Tools - Tutorial Educacional</small>
+        </p>
+    </div>
+</body>
+</html>

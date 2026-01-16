@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - First Order Motion Model</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; padding: 40px; border-radius: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
+        h1 { color: #667eea; border-bottom: 4px solid #667eea; padding-bottom: 15px; margin-bottom: 30px; font-size: 2.5em; }
+        h2 { color: #764ba2; margin-top: 35px; margin-bottom: 20px; font-size: 1.8em; border-left: 5px solid #764ba2; padding-left: 15px; }
+        h3 { color: #667eea; margin-top: 25px; margin-bottom: 15px; font-size: 1.3em; }
+        p { margin-bottom: 15px; text-align: justify; }
+        .warning { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .info { background: #d1ecf1; border-left: 5px solid #17a2b8; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .success { background: #d4edda; border-left: 5px solid #28a745; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        .step { background: #f8f9fa; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #667eea; }
+        .step-number { display: inline-block; background: #667eea; color: white; width: 35px; height: 35px; border-radius: 50%; text-align: center; line-height: 35px; font-weight: bold; margin-right: 10px; }
+        code { background: #f4f4f4; padding: 3px 8px; border-radius: 4px; font-family: 'Courier New', monospace; color: #e83e8c; }
+        ul, ol { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        .footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; text-align: center; color: #666; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; padding: 20px; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎭 Tutorial Completo - First Order Motion Model</h1>
+        
+        <div class="info">
+            <strong>📌 Sobre a Ferramenta:</strong> First Order Motion Model permite animar imagens estáticas usando movimentos de vídeos, criando deepfakes sem necessidade de treinamento extenso. Ideal para animar fotos, pinturas e avatares.
+        </div>
+
+        <h2>💻 Passo 1: Requisitos e Instalação</h2>
+        <div class="step">
+            <p><span class="step-number">1</span><strong>Requisitos do sistema:</strong></p>
+            <ul>
+                <li><strong>Python:</strong> 3.6 ou superior</li>
+                <li><strong>GPU:</strong> NVIDIA com CUDA (recomendado, mas funciona em CPU)</li>
+                <li><strong>RAM:</strong> 8GB mínimo</li>
+                <li><strong>SO:</strong> Windows, Linux ou macOS</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">2</span><strong>Clone o repositório:</strong></p>
+            <p>Abra o terminal e execute:</p>
+            <code>git clone https://github.com/AliaksandrSiarohin/first-order-model</code>
+            <p>Navegue até a pasta: <code>cd first-order-model</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">3</span><strong>Instale dependências:</strong></p>
+            <code>pip install -r requirements.txt</code>
+            <p>Instale também: <code>pip install imageio-ffmpeg</code></p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">4</span><strong>Baixe os modelos pré-treinados:</strong></p>
+            <ul>
+                <li>Acesse a seção "Releases" no GitHub</li>
+                <li>Baixe <code>vox-cpk.pth.tar</code> (para rostos)</li>
+                <li>Coloque na pasta raiz do projeto</li>
+            </ul>
+        </div>
+
+        <h2>🖼️ Passo 2: Preparando os Arquivos</h2>
+        <div class="step">
+            <p><span class="step-number">5</span><strong>Prepare a imagem fonte:</strong></p>
+            <ul>
+                <li>Escolha uma foto com rosto frontal e bem iluminado</li>
+                <li>Formato: JPG ou PNG</li>
+                <li>Resolução: 256x256 pixels (será redimensionada automaticamente)</li>
+                <li>Salve na pasta do projeto</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">6</span><strong>Prepare o vídeo de movimento:</strong></p>
+            <ul>
+                <li>Vídeo com os movimentos que deseja aplicar</li>
+                <li>Formato: MP4, AVI ou MOV</li>
+                <li>Duração: 5-30 segundos recomendado</li>
+                <li>Salve na pasta do projeto</li>
+            </ul>
+        </div>
+
+        <h2>🎬 Passo 3: Gerando a Animação</h2>
+        <div class="step">
+            <p><span class="step-number">7</span><strong>Execute o script de demo:</strong></p>
+            <code>python demo.py --config config/vox-256.yaml --checkpoint vox-cpk.pth.tar --source_image sua-foto.jpg --driving_video seu-video.mp4</code>
+            <p>Substitua <code>sua-foto.jpg</code> e <code>seu-video.mp4</code> pelos seus arquivos.</p>
+        </div>
+
+        <div class="step">
+            <p><span class="step-number">8</span><strong>Aguarde o processamento:</strong></p>
+            <ul>
+                <li>O processo pode levar de 1 a 10 minutos</li>
+                <li>Vídeo final será salvo como <code>result.mp4</code></li>
+                <li>Também será gerado um GIF animado</li>
+            </ul>
+        </div>
+
+        <h2>🌐 Passo 4: Usando Versões Online</h2>
+        <div class="step">
+            <p><span class="step-number">9</span><strong>Alternativas online (sem instalação):</strong></p>
+            <ul>
+                <li><strong>MyHeritage Deep Nostalgia:</strong> Anima fotos antigas</li>
+                <li><strong>Avatarify:</strong> Versão simplificada para webcam</li>
+                <li><strong>Google Colab:</strong> Notebooks prontos para usar</li>
+            </ul>
+        </div>
+
+        <h2>⚙️ Passo 5: Configurações Avançadas</h2>
+        <div class="step">
+            <p><span class="step-number">10</span><strong>Ajuste parâmetros:</strong></p>
+            <ul>
+                <li><strong>--relative:</strong> Usa movimentos relativos (melhor resultado)</li>
+                <li><strong>--adapt_scale:</strong> Adapta escala automaticamente</li>
+                <li><strong>--find_best_frame:</strong> Encontra melhor frame inicial</li>
+            </ul>
+            <p>Exemplo: <code>python demo.py --config config/vox-256.yaml --checkpoint vox-cpk.pth.tar --source_image foto.jpg --driving_video video.mp4 --relative --adapt_scale</code></p>
+        </div>
+
+        <h2>💡 Dicas para Melhores Resultados</h2>
+        <div class="success">
+            <ul>
+                <li>Use fotos frontais com boa iluminação</li>
+                <li>Vídeos com movimentos suaves funcionam melhor</li>
+                <li>Evite óculos ou acessórios que cubram o rosto</li>
+                <li>Mantenha proporções similares entre foto e vídeo</li>
+                <li>Use o parâmetro --relative para resultados mais naturais</li>
+            </ul>
+        </div>
+
+        <h2>🔧 Solução de Problemas</h2>
+        
+        <h3>❌ Erro: CUDA out of memory</h3>
+        <p><strong>Solução:</strong> Use CPU ao invés de GPU adicionando <code>--cpu</code> ao comando</p>
+
+        <h3>❌ Resultado distorcido</h3>
+        <p><strong>Soluções:</strong></p>
+        <ul>
+            <li>Use --find_best_frame para melhor alinhamento</li>
+            <li>Escolha foto e vídeo com ângulos similares</li>
+            <li>Tente vídeo com movimentos mais sutis</li>
+        </ul>
+
+        <h3>❌ Vídeo muito lento para processar</h3>
+        <p><strong>Solução:</strong> Reduza duração do vídeo ou use resolução menor</p>
+
+        <h2>🎯 Casos de Uso</h2>
+        <ul>
+            <li><strong>Animação de fotos antigas:</strong> Dê vida a fotos históricas</li>
+            <li><strong>Avatares animados:</strong> Crie personagens para jogos/apps</li>
+            <li><strong>Arte digital:</strong> Anime pinturas e ilustrações</li>
+            <li><strong>Memes e conteúdo viral:</strong> Crie vídeos engraçados</li>
+            <li><strong>Apresentações:</strong> Avatares falantes para slides</li>
+        </ul>
+
+        <div class="warning">
+            <strong>⚠️ USO ÉTICO:</strong>
+            <ul>
+                <li>NÃO crie conteúdo enganoso ou fraudulento</li>
+                <li>Respeite privacidade e direitos de imagem</li>
+                <li>Sempre divulgue que o conteúdo é sintético</li>
+                <li>Não use para difamação ou assédio</li>
+                <li>Obtenha consentimento ao usar fotos de terceiros</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p><strong>CyberSec Hub - Premium Hub Plataformas</strong></p>
+            <p>Para salvar em PDF: Ctrl+P → Salvar como PDF</p>
+        </div>
+    </div>
+</body>
+</html>
