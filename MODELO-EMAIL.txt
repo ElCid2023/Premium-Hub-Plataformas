@@ -1,0 +1,48 @@
+========================================
+MODELO DE EMAIL - ENVIO DE SENHA
+========================================
+
+DE: jbcursosepalestras@gmail.com
+PARA: [email do cliente que comprou]
+ASSUNTO: Premium Hub - Sua Senha de Acesso
+
+========================================
+
+Olá [Nome do Cliente]!
+
+Sua compra foi confirmada! 🎉
+
+🔑 Sua senha de acesso:
+[COLE A SENHA AQUI - Ex: PREMIUM2024A1]
+
+🔗 Link de acesso:
+https://elcid2023.github.io/Premium-Hub-Plataformas/login.html
+
+📋 Como usar:
+1. Acesse o link acima
+2. Clique em "Login"
+3. Digite sua senha
+4. Aproveite as 4 plataformas!
+
+✅ Você tem acesso a:
+- CodeIA Hub (33+ ferramentas)
+- EduIA Hub (22+ ferramentas)
+- Marketing Hub (25+ ferramentas)
+- CyberSec Hub (20+ ferramentas)
+
+📞 Dúvidas?
+WhatsApp: (11) 91440-5349
+Email: jbcursosepalestras@gmail.com
+
+Abraços!
+JB Cursos e Palestras
+
+========================================
+
+CHECKLIST ANTES DE ENVIAR:
+[ ] Substituir [Nome do Cliente]
+[ ] Colar a senha correta
+[ ] Marcar senha como USADA no SENHAS-CONTROLE.txt
+[ ] Verificar se o link está correto
+
+========================================
