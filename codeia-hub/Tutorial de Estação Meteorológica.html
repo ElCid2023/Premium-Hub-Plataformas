@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Projeto Estação Meteorológica</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto;background:white;border-radius:20px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}h1{color:#667eea;font-size:2.5em;margin-bottom:10px}.subtitle{color:#666;font-size:1.2em;margin-bottom:30px}.step{background:#f8f9fa;padding:25px;border-radius:10px;margin:20px 0;border-left:5px solid #667eea}.step h2{color:#333;margin-bottom:15px}ul{margin-left:20px;color:#555;line-height:1.8}.code-block{background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;margin:15px 0;font-family:'Courier New',monospace;font-size:14px}</style></head><body><div class="container"><h1>🌤️ Projeto Estação Meteorológica</h1><p class="subtitle">Monitoramento Climático com WiFi</p><div class="step"><h2>Materiais</h2><ul><li>ESP32</li><li>Sensor DHT22</li><li>Sensor BMP180</li><li>Display OLED</li><li>App Blynk</li></ul></div><div class="step"><h2>Código</h2><div class="code-block">#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+#include <DHT.h>
+
+#define DHT_PIN 4
+DHT dht(DHT_PIN, DHT22);
+
+char auth[] = "TOKEN_BLYNK";
+char ssid[] = "WIFI_REDE";
+char pass[] = "WIFI_SENHA";
+
+void loop() {
+  Blynk.run();
+  
+  float temp = dht.readTemperature();
+  float humidity = dht.readHumidity();
+  
+  Blynk.virtualWrite(V1, temp);
+  Blynk.virtualWrite(V2, humidity);
+  
+  delay(30000);
+}</div></div></div></body></html>

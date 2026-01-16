@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Scratch for Arduino</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧩 Tutorial Scratch for Arduino (S4A)</h1>
+        <p class="subtitle">Programação Visual para Arduino</p>
+
+        <div class="step">
+            <h2>1. Instalação</h2>
+            <ul>
+                <li>Baixe S4A em s4a.cat</li>
+                <li>Instale o programa</li>
+                <li>Carregue firmware S4A no Arduino</li>
+                <li>Conecte Arduino via USB</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>2. Interface</h2>
+            <div class="info-box">
+                <p>Blocos disponíveis:</p>
+                <ul>
+                    <li>digital on/off - Liga/desliga pino</li>
+                    <li>analog value - Lê valor analógico</li>
+                    <li>motor - Controla motores</li>
+                    <li>servo - Posição do servo</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>3. Pinos Disponíveis</h2>
+            <div class="code-block">Digitais: 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
+Analógicos: A0, A1, A2, A3, A4, A5
+PWM: 3, 5, 6, 9, 10, 11
+Servos: 4, 7, 8, 12</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Exemplo: LED Piscante</h2>
+            <div class="code-block">Blocos:
+[Quando 🏴 clicado]
+[sempre]
+  [digital 13 on]
+  [espere 1 segundos]
+  [digital 13 off]
+  [espere 1 segundos]</div>
+        </div>
+
+        <div class="step">
+            <h2>5. Limitações</h2>
+            <ul>
+                <li>Requer conexão USB constante</li>
+                <li>Não grava código no Arduino</li>
+                <li>Executa em tempo real</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

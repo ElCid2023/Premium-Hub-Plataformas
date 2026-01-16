@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Projeto Carro Segue Linha</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto;background:white;border-radius:20px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}h1{color:#667eea;font-size:2.5em;margin-bottom:10px}.subtitle{color:#666;font-size:1.2em;margin-bottom:30px}.step{background:#f8f9fa;padding:25px;border-radius:10px;margin:20px 0;border-left:5px solid #667eea}.step h2{color:#333;margin-bottom:15px}ul{margin-left:20px;color:#555;line-height:1.8}.code-block{background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;margin:15px 0;font-family:'Courier New',monospace;font-size:14px}</style></head><body><div class="container"><h1>🚗 Projeto Carro Segue Linha</h1><p class="subtitle">Robô que Segue Linha Preta</p><div class="step"><h2>Materiais</h2><ul><li>Arduino Uno</li><li>Driver L298N</li><li>2x Motores DC</li><li>2x Sensores IR (TCRT5000)</li><li>Chassi e rodas</li><li>Bateria 9V</li></ul></div><div class="step"><h2>Código</h2><div class="code-block">#define MOTOR_A_IN1 2
+#define MOTOR_A_IN2 3
+#define SENSOR_LEFT A0
+#define SENSOR_RIGHT A1
+
+void loop() {
+  int left = digitalRead(SENSOR_LEFT);
+  int right = digitalRead(SENSOR_RIGHT);
+  
+  if (left == 0 && right == 0) {
+    moveForward();
+  } else if (left == 0) {
+    turnLeft();
+  } else if (right == 0) {
+    turnRight();
+  }
+}</div></div></div></body></html>

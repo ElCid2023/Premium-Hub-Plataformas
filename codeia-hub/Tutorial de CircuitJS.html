@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial CircuitJS</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>⚡ Tutorial CircuitJS</h1>
+        <p class="subtitle">Simulador de Circuitos Online</p>
+
+        <div class="step">
+            <h2>1. Acesso</h2>
+            <p>Acesse falstad.com/circuit/circuitjs.html</p>
+            <p>Não requer instalação ou cadastro</p>
+        </div>
+
+        <div class="step">
+            <h2>2. Adicionar Componentes</h2>
+            <ul>
+                <li>Clique direito na área de trabalho</li>
+                <li>Selecione componente (resistor, LED, etc)</li>
+                <li>Clique para posicionar</li>
+                <li>Arraste para conectar</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>3. Simulação em Tempo Real</h2>
+            <div class="info-box">
+                <p>Visualização instantânea:</p>
+                <ul>
+                    <li>Verde: Tensão positiva</li>
+                    <li>Cinza: Zero volts</li>
+                    <li>Vermelho: Tensão negativa</li>
+                    <li>Pontos amarelos: Corrente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>4. Osciloscópio</h2>
+            <div class="code-block">Visualizar sinais:
+1. Clique direito no fio
+2. Selecione "View in Scope"
+3. Ajuste escala de tempo
+4. Compare múltiplos sinais</div>
+        </div>
+
+        <div class="step">
+            <h2>5. Salvar Circuito</h2>
+            <ul>
+                <li>File → Export as Link (URL)</li>
+                <li>File → Export as Text</li>
+                <li>Copie e salve o código</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

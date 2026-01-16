@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Fritzing</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+        h1 { color: #667eea; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { color: #666; font-size: 1.2em; margin-bottom: 30px; }
+        .step { background: #f8f9fa; padding: 25px; border-radius: 10px; margin: 20px 0; border-left: 5px solid #667eea; }
+        .step h2 { color: #333; margin-bottom: 15px; font-size: 1.5em; }
+        .step p { color: #555; line-height: 1.8; margin-bottom: 10px; }
+        .code-block { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; margin: 15px 0; overflow-x: auto; font-family: 'Courier New', monospace; font-size: 14px; }
+        .info-box { background: #e3f2fd; border-left: 4px solid #2196F3; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        ul { margin-left: 20px; color: #555; line-height: 1.8; }
+        @media print { body { background: white; padding: 0; } .container { box-shadow: none; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 Tutorial Fritzing</h1>
+        <p class="subtitle">Design de Circuitos e PCB</p>
+
+        <div class="step">
+            <h2>1. Download</h2>
+            <ul>
+                <li>Acesse fritzing.org</li>
+                <li>Baixe para Windows/Mac/Linux</li>
+                <li>Instale o programa</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>2. Interface</h2>
+            <p>3 visualizações:</p>
+            <ul>
+                <li><strong>Breadboard:</strong> Prototipagem visual</li>
+                <li><strong>Schematic:</strong> Diagrama esquemático</li>
+                <li><strong>PCB:</strong> Layout de placa</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h2>3. Criar Circuito</h2>
+            <div class="code-block">Passo a passo:
+1. Arraste Arduino da biblioteca
+2. Adicione LED e resistor
+3. Conecte com fios
+4. Mude para aba Schematic
+5. Organize componentes
+6. Exporte como imagem</div>
+        </div>
+
+        <div class="step">
+            <h2>4. Design de PCB</h2>
+            <div class="info-box">
+                <ul>
+                    <li>Clique na aba PCB</li>
+                    <li>Defina tamanho da placa</li>
+                    <li>Posicione componentes</li>
+                    <li>Use Autoroute ou roteie manualmente</li>
+                    <li>Exporte Gerber files</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2>5. Exportar</h2>
+            <ul>
+                <li>File → Export → Image (PNG/SVG)</li>
+                <li>File → Export → Gerber (fabricação)</li>
+                <li>File → Export → BOM (lista materiais)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

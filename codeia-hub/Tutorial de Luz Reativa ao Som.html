@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Projeto Luz Reativa ao Som</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:20px}.container{max-width:900px;margin:0 auto;background:white;border-radius:20px;padding:40px;box-shadow:0 20px 60px rgba(0,0,0,0.3)}h1{color:#667eea;font-size:2.5em;margin-bottom:10px}.subtitle{color:#666;font-size:1.2em;margin-bottom:30px}.step{background:#f8f9fa;padding:25px;border-radius:10px;margin:20px 0;border-left:5px solid #667eea}.step h2{color:#333;margin-bottom:15px}ul{margin-left:20px;color:#555;line-height:1.8}.code-block{background:#2d2d2d;color:#f8f8f2;padding:20px;border-radius:8px;margin:15px 0;font-family:'Courier New',monospace;font-size:14px}</style></head><body><div class="container"><h1>🎵 Projeto Luz Reativa ao Som</h1><p class="subtitle">LEDs que Reagem à Música</p><div class="step"><h2>Materiais</h2><ul><li>Arduino Uno</li><li>Microfone com amplificador</li><li>Fita LED RGB WS2812B</li><li>Fonte 5V</li></ul></div><div class="step"><h2>Código</h2><div class="code-block">#include <FastLED.h>
+
+#define MIC_PIN A0
+#define LED_PIN 6
+#define NUM_LEDS 60
+
+CRGB leds[NUM_LEDS];
+
+void loop() {
+  int sound = analogRead(MIC_PIN);
+  int brightness = map(sound, 0, 1023, 0, 255);
+  
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CRGB(brightness, 0, brightness/2);
+  }
+  FastLED.show();
+}</div></div></div></body></html>
