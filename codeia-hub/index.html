@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeIA Hub - IAs para Programação e Eletrônica</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>CodeIA Hub</h1>
+            </div>
+            <nav class="nav">
+                <div class="language-selector">
+                    <select id="languageSelect">
+                        <option value="pt">🇧🇷 Português</option>
+                        <option value="en">🇺🇸 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                    </select>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2 data-translate="hero.title">Plataforma Completa de IAs para Programação e Eletrônica</h2>
+                <p data-translate="hero.subtitle">Todas as ferramentas de IA gratuitas para programação, Arduino e eletrônica em um só lugar</p>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" data-translate="filters.all">Todas</button>
+                    <button class="filter-btn" data-filter="programming" data-translate="filters.programming">Programação</button>
+                    <button class="filter-btn" data-filter="arduino" data-translate="filters.arduino">Arduino</button>
+                    <button class="filter-btn" data-filter="electronics" data-translate="filters.electronics">Eletrônica</button>
+                    <button class="filter-btn" data-filter="simulation" data-translate="filters.simulation">Simulação</button>
+                    <button class="filter-btn" data-filter="robotics" data-translate="filters.robotics">Robótica</button>
+                    <button class="filter-btn" data-filter="education" data-translate="filters.education">Ensino</button>
+                    <button class="filter-btn" data-filter="projects" data-translate="filters.projects">Projetos</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools-grid">
+            <div class="container">
+                <div id="toolsContainer" class="tools-container">
+                    <!-- Tools will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Translation Context Menu -->
+    <div id="contextMenu" class="context-menu">
+        <div class="context-item" id="translateText">
+            <i class="fas fa-language"></i>
+            <span data-translate="translate">Traduzir</span>
+        </div>
+    </div>
+
+    <!-- Translation Modal -->
+    <div id="translationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 data-translate="translation.title">Tradução</h3>
+            <div class="translation-content">
+                <div class="original-text">
+                    <label data-translate="translation.original">Texto Original:</label>
+                    <p id="originalText"></p>
+                </div>
+                <div class="translated-text">
+                    <label data-translate="translation.translated">Traduzido:</label>
+                    <p id="translatedText">Traduzindo...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Text Tutorial Modal -->
+    <div id="textTutorialModal" class="modal">
+        <div class="modal-content tutorial-modal">
+            <span class="close" onclick="closeTextTutorial()">&times;</span>
+            <div id="tutorialContent">
+                <!-- Tutorial content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-translate="footer.text">&copy; 2024 CodeIA Hub - Democratizando o acesso à programação e eletrônica com IA</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
